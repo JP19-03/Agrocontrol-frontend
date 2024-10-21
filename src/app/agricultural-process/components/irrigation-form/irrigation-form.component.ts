@@ -114,7 +114,7 @@ export class IrrigationFormComponent {
   onCancel() {
     this.resetForm();
     this.success = false;
-    this.router.navigate(['/irrigation-view'])
+    this.router.navigate(['/irrigation-history'])
   }
 
 }

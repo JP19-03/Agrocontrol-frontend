@@ -21,7 +21,7 @@ import {
   CropTreatmentViewComponent
 } from "./agricultural-process/pages/crop-treatment-view/crop-treatment-view.component";
 import {FinanceViewComponent} from "./agricultural-process/pages/finance-view/finance-view.component";
-
+import {IrrigationHistoryComponent} from "./agricultural-process/pages/irrigation-history/irrigation-history.component";
 
 export const routes: Routes = [
   {
@@ -56,8 +56,8 @@ export const routes: Routes = [
         data: { name: 'irrigation-scheduler' }
       },
       {
-        path: 'irrigation-view',
-        component: IrrigationViewComponent,
+        path: 'irrigation-history',
+        component: IrrigationHistoryComponent,
       },
       {
         path: 'seeding-registration',
