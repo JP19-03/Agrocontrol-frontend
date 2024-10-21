@@ -22,7 +22,7 @@ export class BaseService<T> {
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 
-  private resourcePath() {
+  protected resourcePath() {
     return `${this.basePath}${this.resourceEndpoint}`;
   }
 
