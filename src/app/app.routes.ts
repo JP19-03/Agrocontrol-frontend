@@ -20,6 +20,7 @@ import {WorkerManagementComponent} from "./fields/pages/worker-management/worker
 import {
   CropTreatmentViewComponent
 } from "./agricultural-process/pages/crop-treatment-view/crop-treatment-view.component";
+import {FinanceViewComponent} from "./agricultural-process/pages/finance-view/finance-view.component";
 
 
 export const routes: Routes = [
@@ -72,7 +73,13 @@ export const routes: Routes = [
         path: 'crop-treatment-scheduler',
         component: CropTreatmentSchedulerComponent,
         data: { name: 'crop-treatment-scheduler' }
+      },
+      {
+        path: 'finance-view',
+        component: FinanceViewComponent,
+        data: { name: 'finance-view' }
       }
+
     ]
   }
 ];
