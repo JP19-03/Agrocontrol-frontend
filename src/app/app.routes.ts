@@ -3,7 +3,6 @@ import { Routes } from '@angular/router';
 import {
   IrrigationSchedulerComponent
 } from './agricultural-process/pages/irrigation-scheduler/irrigation-scheduler.component';
-import {IrrigationViewComponent} from "./agricultural-process/pages/irrigation-view/irrigation-view.component";
 import {
   CropTreatmentSchedulerComponent
 } from './agricultural-process/pages/crop-treatment-scheduler/crop-treatment-scheduler.component';
@@ -22,8 +21,13 @@ import {
 } from "./agricultural-process/pages/crop-treatment-view/crop-treatment-view.component";
 import {FinanceViewComponent} from "./agricultural-process/pages/finance-view/finance-view.component";
 import {IrrigationHistoryComponent} from "./agricultural-process/pages/irrigation-history/irrigation-history.component";
+import {TestComponent} from "./agricultural-process/pages/test/test.component";
 
 export const routes: Routes = [
+  {
+    path: 'test',
+    component: TestComponent,
+  },
   {
     path: 'login',
     component: LoginFormComponent,

@@ -3,6 +3,7 @@ export class AgriculturalActivity {
   agriculturalProcessId: number;
   activityType: string;
   date: string;
+  activityStatus: string;
   hoursIrrigated: number;
   plantType: string;
   quantityPlanted: number;
@@ -12,6 +13,7 @@ export class AgriculturalActivity {
     agriculturalProcessId?: number;
     activityType?: string;
     date?: string;
+    activityStatus?: string;
     hoursIrrigated?: number;
     plantType?: string;
     quantityPlanted?: number;
@@ -20,6 +22,7 @@ export class AgriculturalActivity {
     this.agriculturalProcessId = agriculturalActivity.agriculturalProcessId || 0;
     this.activityType = agriculturalActivity.activityType || "";
     this.date = agriculturalActivity.date || "";
+    this.activityStatus = agriculturalActivity.activityStatus || "";
     this.hoursIrrigated = agriculturalActivity.hoursIrrigated || 0;
     this.plantType = agriculturalActivity.plantType || "";
     this.quantityPlanted = agriculturalActivity.quantityPlanted || 0;

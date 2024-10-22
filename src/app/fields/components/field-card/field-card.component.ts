@@ -65,6 +65,7 @@ export class FieldCardComponent {
         );
 
         if (agriculturalProcess) {
+          localStorage.setItem('fieldName', this.field.fieldName);
           localStorage.setItem('agriculturalProcessId', agriculturalProcess.id);
           this.router.navigate(['home-agricultural-process', agriculturalProcess.id]);
         } else {

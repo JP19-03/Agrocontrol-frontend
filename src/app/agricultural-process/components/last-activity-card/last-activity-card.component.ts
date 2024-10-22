@@ -2,12 +2,12 @@ import {Component, inject, Input, OnInit} from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import {AgriculturalProcessService} from "../../services/agricultural-process.service";
 import {AgriculturalActivity} from "../../models/agricultural-activity.entity";
-
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-last-activity-card',
   standalone: true,
-  imports: [ MatCardModule ],
+  imports: [MatCardModule, NgIf],
   templateUrl: './last-activity-card.component.html',
   styleUrl: './last-activity-card.component.css'
 })
