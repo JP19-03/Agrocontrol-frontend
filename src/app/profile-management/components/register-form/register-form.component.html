@@ -61,6 +61,7 @@
           matInput
           [type]="hide() ? 'password' : 'text'"
           formControlName="confirmPassword"
+
         />
         <button
           mat-icon-button
@@ -71,10 +72,19 @@
         >
           <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
         </button>
+
+        <!-- Error por campo requerido -->
         <mat-error *ngIf="registerForm.get('confirmPassword')?.hasError('required')">
-          Confirm Password is <strong>required</strong>
+          Confirm Password is <strong>required</strong>.
+        </mat-error>
+
+        <!-- Error por contraseñas no coincidentes -->
+        <mat-error
+          *ngIf="registerForm.hasError('notMatching')">
+          Confirm Password must match the <strong>Password</strong>.
         </mat-error>
       </mat-form-field>
+
 
       <!-- City -->
       <mat-form-field class="w-full mb-4">
@@ -132,7 +142,8 @@
       </div>
 
       <!-- Conditional Fields -->
-      <div *ngIf="registerForm.get('roles')?.value === 'producer'" class="mb-4">
+      <div *ngIf="registerForm.get('roles')?.value === 'producer'" class="mb-7">
+        <!-- DNI -->
         <mat-form-field class="w-full">
           <mat-label>DNI number</mat-label>
           <input
@@ -150,7 +161,8 @@
         </mat-form-field>
       </div>
 
-      <div *ngIf="registerForm.get('roles')?.value === 'distributor'" class="mb-4">
+      <div *ngIf="registerForm.get('roles')?.value === 'distributor'" class="mb-7">
+        <!-- Company Name -->
         <mat-form-field class="w-full">
           <mat-label>Company Name</mat-label>
           <input
@@ -162,6 +174,7 @@
             Company Name is <strong>required</strong>
           </mat-error>
         </mat-form-field>
+        <!-- RUC -->
         <mat-form-field class="w-full mt-4">
           <mat-label>RUC number</mat-label>
           <input
