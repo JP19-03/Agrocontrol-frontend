@@ -37,7 +37,7 @@ export class LoginFormComponent {
       this.userService.getAll().subscribe(
         (response: User[]) => {
           const foundUser = response.find((user: User) =>
-            user.username === this.userForm.value.username &&
+            user.email === this.userForm.value.username &&
             user.password === this.userForm.value.password
           );
 

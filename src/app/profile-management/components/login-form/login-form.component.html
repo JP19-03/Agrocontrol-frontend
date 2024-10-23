@@ -4,7 +4,7 @@
     <form (submit)="onSubmit()" #userForm="ngForm" class="flex flex-col">
       <mat-form-field appearance="fill" class="mb-4">
         <mat-label>Username</mat-label>
-        <input matInput placeholder="Username" name="username" [(ngModel)]="user.username" required>
+        <input matInput placeholder="Username" name="username" [(ngModel)]="user.email" required>
       </mat-form-field>
       <mat-form-field appearance="fill" class="mb-4">
         <mat-label>Password</mat-label>
