@@ -18,15 +18,7 @@ export class AuthService extends BaseService<User>{
   }
 
   createDistributor(user : User){
-    const headers = this.getHeadersAuthorization();
     return this.http.post(`${this.resourcePath()}/sign-up/distributor`, user)
       .pipe(retry(2), catchError(this.handleError));
-  }
-
-  getHeadersAuthorization() {
-    return {
-      "Content-Type": "application/json",
-      "accept": "application/json"
-    }
   }
 }
