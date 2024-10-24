@@ -76,11 +76,6 @@ export class RegisterFormComponent {
 
   constructor() {}
 
-  // onPasswordInput() {
-  //   this.registerForm.get('confirmPassword')?.markAsTouched(); // Asegura que el campo esté marcado como tocado
-  //   this.registerForm.updateValueAndValidity(); // Revalida el formulario completo
-  //   console.log(this.registerForm.errors); // Verifica si el error persiste
-  // }
   // Validador personalizado para asegurar que las contraseñas coincidan
   private passwordMatchValidator(password: string, confirmPassword: string) {
     return (form: AbstractControl) => {
@@ -99,21 +94,21 @@ export class RegisterFormComponent {
   // Validador para asegurarse de que el DNI tenga exactamente 8 números
   private dniValidator(control: AbstractControl) {
     const value = control.value;
-    const valid = /^\d{8}$/.test(value); // Verifica que tenga exactamente 8 dígitos
+    const valid = /^\d{8}$/.test(value);
     return valid ? null : { invalidDni: true };
   }
 
 // Validador para asegurarse de que el RUC tenga exactamente 11 números
   private rucValidator(control: AbstractControl) {
     const value = control.value;
-    const valid = /^\d{11}$/.test(value); // Verifica que tenga exactamente 11 dígitos
+    const valid = /^\d{11}$/.test(value);
     return valid ? null : { invalidRuc: true };
   }
 
 // Validador para asegurarse de que el teléfono tenga exactamente 9 números
   private phoneValidator(control: AbstractControl) {
     const value = control.value;
-    const valid = /^\d{9}$/.test(value); // Verifica que tenga exactamente 9 dígitos
+    const valid = /^\d{9}$/.test(value);
     return valid ? null : { invalidPhone: true };
   }
 
@@ -130,24 +125,16 @@ export class RegisterFormComponent {
 
     if (this.role === 'producer') {
       // Aplicamos Validators.required junto con la validación personalizada del DNI
-      this.registerForm.get('dni')?.setValidators([
-        Validators.required,
-        this.dniValidator.bind(this) // Aseguramos que 'this' se refiera al componente
-      ]);
+      this.registerForm.get('dni')?.setValidators([Validators.required, this.dniValidator.bind(this)]);
 
       // Quitamos validaciones de companyName y ruc
       this.registerForm.get('companyName')?.clearValidators();
       this.registerForm.get('ruc')?.clearValidators();
-    } else if (this.role === 'distributor') {
-      // Aplicamos Validators.required junto con la validación personalizada del RUC
-      this.registerForm.get('companyName')?.setValidators([
-        Validators.required
-      ]);
 
-      this.registerForm.get('ruc')?.setValidators([
-        Validators.required,
-        this.rucValidator.bind(this)
-      ]);
+    } else if (this.role === 'distributor') {
+
+      this.registerForm.get('companyName')?.setValidators([Validators.required]);
+      this.registerForm.get('ruc')?.setValidators([Validators.required, this.rucValidator.bind(this)]);
 
       // Quitamos validaciones del DNI
       this.registerForm.get('dni')?.clearValidators();
@@ -163,6 +150,7 @@ export class RegisterFormComponent {
   submitForm() {
     if (this.registerForm.valid) {
       const user: User = this.registerForm.value;
+      console.log('User data being submitted:', user);
       this.userCreated.emit(user);  // Emitimos el usuario al componente padre
     } else {
       console.log('Form is invalid');
