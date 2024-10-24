@@ -21,4 +21,9 @@ export class AuthService extends BaseService<User>{
     return this.http.post(`${this.resourcePath()}/sign-up/distributor`, user)
       .pipe(retry(2), catchError(this.handleError));
   }
+
+  LogInUser(user : User){
+    return this.http.post(`${this.resourcePath()}/sign-in`, user)
+      .pipe(retry(2), catchError(this.handleError))
+  }
 }
