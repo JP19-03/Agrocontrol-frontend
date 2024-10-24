@@ -121,30 +121,24 @@ export class RegisterFormComponent {
   // Manejo de cambios en los roles y actualización dinámica del formulario
   onRoleChange(event: any) {
     this.role = event.value;
-    this.registerForm.get('roles')?.setValue(this.role); // Actualizamos el valor del rol
+    // Asigna el rol como un array de strings en lugar de un string
+    this.registerForm.get('roles')?.setValue([this.role]);
 
-    if (this.role === 'producer') {
-      // Aplicamos Validators.required junto con la validación personalizada del DNI
+    if (this.role === 'agricultural producer') {
       this.registerForm.get('dni')?.setValidators([Validators.required, this.dniValidator.bind(this)]);
-
-      // Quitamos validaciones de companyName y ruc
       this.registerForm.get('companyName')?.clearValidators();
       this.registerForm.get('ruc')?.clearValidators();
-
     } else if (this.role === 'distributor') {
-
       this.registerForm.get('companyName')?.setValidators([Validators.required]);
       this.registerForm.get('ruc')?.setValidators([Validators.required, this.rucValidator.bind(this)]);
-
-      // Quitamos validaciones del DNI
       this.registerForm.get('dni')?.clearValidators();
     }
 
-    // Asegúrate de actualizar la validez de los campos y marcarlos como tocados
     this.registerForm.get('dni')?.updateValueAndValidity();
     this.registerForm.get('companyName')?.updateValueAndValidity();
     this.registerForm.get('ruc')?.updateValueAndValidity();
   }
+
 
   // Método para enviar los datos al componente padre
   submitForm() {
