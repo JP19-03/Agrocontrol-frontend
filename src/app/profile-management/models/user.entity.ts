@@ -11,6 +11,7 @@ export class User {
   dni: string;
   companyName: string;
   ruc: string;
+  token: string;
 
   constructor(user: {
     id?: number,
@@ -24,7 +25,8 @@ export class User {
     phone?: string,
     dni?: string,
     companyName?: string,
-    ruc?: string
+    ruc?: string,
+    token?: string
   }) {
     this.id = user.id || 0;
     this.email = user.email || '';
@@ -38,5 +40,6 @@ export class User {
     this.dni = user.dni || '';
     this.companyName = user.companyName || '';
     this.ruc = user.ruc || '';
+    this.token = user.token || '';
   }
 }

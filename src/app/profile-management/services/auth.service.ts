@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {BaseService} from "../../shared/services/base.service";
 import {User} from "../models/user.entity";
-import {catchError, retry} from "rxjs";
+import {catchError, Observable, retry, tap} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +22,17 @@ export class AuthService extends BaseService<User>{
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  LogInUser(user : User){
-    return this.http.post(`${this.resourcePath()}/sign-in`, user)
-      .pipe(retry(2), catchError(this.handleError))
+  // Método para iniciar sesión y almacenar token, roles y userId
+  LogInUser(user: User): Observable<User> {
+    return this.http.post<any>(`${this.resourcePath()}/sign-in`, user).pipe(
+      retry(2),
+      catchError(this.handleError),
+      tap((response) => {
+        // Guardamos el token, roles y userId en el localStorage
+        this.newToken(response.token); // Guarda el token en el BaseService y actualiza las cabeceras
+        localStorage.setItem('userId', response.id.toString());
+        localStorage.setItem('roles', JSON.stringify(response.roles));
+      })
+    );
   }
 }
