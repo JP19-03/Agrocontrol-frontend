@@ -11,6 +11,7 @@ import {CropTreatmentService} from "../../services/crop-treatment.service";
 import {WorkerService} from "../../../fields/services/worker.service";
 import {ProductsService} from "../../services/products.service";
 import {Router} from "@angular/router";
+import {AgriculturalActivity} from "../../models/agricultural-activity.entity";
 @Component({
   selector: 'app-crop-treatment-form',
   standalone: true,
@@ -32,7 +33,7 @@ export class CropTreatmentFormComponent {
   @Input() agriculturalProcessId!: number;
   @Input() date!: string;
   success = false;
-  cropTreatment!: CropTreatment;
+  cropTreatment!: AgriculturalActivity;
   @ViewChild('cropTreatmentFrom', { static: false }) cropTreatmentFrom!: NgForm;
   userProducts: any = [];
   products: { productId: number; quantity: number }[] = [
@@ -48,14 +49,14 @@ export class CropTreatmentFormComponent {
   showWarning = false;
 
   constructor(private router: Router) {
-    this.cropTreatment = new CropTreatment({});
+    this.cropTreatment = new AgriculturalActivity({});
     this.getProducts();
     this.getWorkers();
   }
 
   private resetForm() {
     this.cropTreatmentFrom.resetForm();
-    this.cropTreatment = new CropTreatment({});
+    this.cropTreatment = new AgriculturalActivity({});
     this.workers = [
       { workerId: 0, cost: 0 }
     ]; // Reset workers array
@@ -69,10 +70,10 @@ export class CropTreatmentFormComponent {
       this.cropTreatment.agriculturalProcessId = this.agriculturalProcessId;
       this.cropTreatment.date = this.date;
       // Filtra los trabajadores válidos
-      this.cropTreatment.workers = this.workers;
+      this.cropTreatment.resources = this.workers;
       // Filtra los productos válidos
-      this.cropTreatment.productsUsed = this.products;
-      this.calculateTotalCost();
+      this.cropTreatment.resources = this.products;
+      console.log('Crop Treatment', this.cropTreatment);
       this.cropTreatmentService.create(this.cropTreatment).subscribe((response: any) => {
         console.log('Crop Treatment created', response);
         this.success = true;
@@ -123,11 +124,6 @@ export class CropTreatmentFormComponent {
     if (this.products.length > 1) {
       this.products.splice(index, 1); // Remove the product at the specified index
     }
-  }
-
-  calculateTotalCost() {
-    this.cropTreatment.totalWorkersCost = this.workers.reduce((acc, worker) => acc + (worker.cost || 0), 0);
-    console.log('Total Workers Cost:', this.cropTreatment.totalWorkersCost);
   }
 
 

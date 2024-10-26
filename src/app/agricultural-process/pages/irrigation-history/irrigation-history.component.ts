@@ -22,9 +22,9 @@ import {AgriculturalProcessService} from "../../services/agricultural-process.se
 })
 export class IrrigationHistoryComponent implements OnInit {
   protected dataSource!: MatTableDataSource<any>;
-  protected displayedColumns: string[] = ['id', 'date', 'workersTotalCost',  'activityStatus', 'hoursIrrigated'];
+  protected displayedColumns: string[] = ['id', 'date', 'workersTotalCost',  'activityStatus', 'hoursIrrigated', 'resources'];
   private activityService: AgriculturalProcessService = inject(AgriculturalProcessService);
-  private agriculturalProcessId: number = 1;
+  private agriculturalProcessId: number = 2;
   private activityType: String = 'IRRIGATION';
 
   constructor() {
