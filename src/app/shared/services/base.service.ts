@@ -14,7 +14,7 @@ export class BaseService<T> {
 
   protected token: string | null = null;
 
-  httpOptions = this.createHttpOptions();
+  protected httpOptionsAuthorized = this.createHttpOptions();
 
   protected basePath: string = `${environment.serverBasePath}`;
 
@@ -45,7 +45,7 @@ export class BaseService<T> {
   public newToken(token: string): void {
     this.tokenService.setToken(token);
     this.token = token;
-    this.httpOptions = this.createHttpOptions();
+    this.httpOptionsAuthorized = this.createHttpOptions();
   }
 
   // Metodo público que carga el token desde TokenService cuando lo necesites
@@ -53,7 +53,7 @@ export class BaseService<T> {
     const storedToken = this.tokenService.getToken();
     if (storedToken) {
       this.token = storedToken;
-      this.httpOptions = this.createHttpOptions();
+      this.httpOptionsAuthorized = this.createHttpOptions();
     }
   }
 

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {MatIconModule} from "@angular/material/icon";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
+import {AuthService} from "../../../profile-management/services/auth.service";
 
 @Component({
   selector: 'app-sidenav-agricultural-producer',
@@ -10,5 +11,10 @@ import {RouterLink} from "@angular/router";
   styleUrl: './sidenav-agricultural-producer.component.css'
 })
 export class SidenavAgriculturalProducerComponent {
-
+  private router = inject(Router);
+  private authService: AuthService = inject(AuthService);
+  logOut(): void {
+    this.authService.logOut();
+    this.router.navigate(['/login']); // Redirige a la página de login
+  }
 }

@@ -17,6 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from "@angular/common";
+import {RouterLink} from "@angular/router";
 
 /** ErrorStateMatcher para manejar validaciones en campos sucios, tocados o enviados */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -38,6 +39,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     MatRadioGroup,
     ReactiveFormsModule,
     CommonModule,
+    RouterLink,
   ],
   templateUrl: './register-form.component.html',
   styleUrls: ['./register-form.component.css'],

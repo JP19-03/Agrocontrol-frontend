@@ -11,4 +11,9 @@ export class UserService extends BaseService<User>{
     super();
     this.resourceEndpoint = '/users';
   }
+
+  getUserById(userId : Number){
+    this.setToken()
+    return this.http.get<User>(`${this.resourcePath()}/${userId}`, this.httpOptionsAuthorized)
+  }
 }
