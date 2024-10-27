@@ -38,7 +38,7 @@ export const routes: Routes = [
     data: { roles: ['ROLE_AGRICULTURAL_PRODUCER'] },
     children: [
       {
-        path: 'home-agricultural-process',
+        path: 'home-agricultural-process/:id',
         component: HomeViewComponent,
       },
       {
