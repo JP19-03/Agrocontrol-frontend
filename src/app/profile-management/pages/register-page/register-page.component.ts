@@ -2,6 +2,14 @@ import { Component, inject } from '@angular/core';
 import { AuthService } from "../../services/auth.service";
 import { User } from "../../models/user.entity";
 import {RegisterFormComponent} from "../../components/register-form/register-form.component";
+import {MatDialog} from "@angular/material/dialog";
+import {
+  AgriculturalProducerDialogComponent
+} from "../../components/agricultural-producer-dialog/agricultural-producer-dialog.component";
+import {DistributorDialogComponent} from "../../components/distributor-dialog/distributor-dialog.component";
+import {
+  SuccessfulRegistrationDialogComponent
+} from "../../components/successful-registration-dialog/successful-registration-dialog.component";
 
 @Component({
   selector: 'app-register-page',
@@ -13,6 +21,7 @@ import {RegisterFormComponent} from "../../components/register-form/register-for
   styleUrls: ['./register-page.component.css']
 })
 export class RegisterPageComponent {
+  private dialog: MatDialog = inject(MatDialog);
   private _authService: AuthService = inject(AuthService);
 
   // Registro de usuario basado en el rol del usuario
@@ -40,8 +49,8 @@ export class RegisterPageComponent {
     });
 
     this._authService.createAgriculturalProducer(agriculturalProducer).subscribe({
-      next: (response) => console.log('Agricultural Producer registered successfully:', response),
-      error: (error) => console.error('Error registering Agricultural Producer:', error),
+      next: (response) => this.dialog.open(SuccessfulRegistrationDialogComponent),
+      error: () => this.dialog.open(AgriculturalProducerDialogComponent),
     });
   }
 
@@ -59,8 +68,8 @@ export class RegisterPageComponent {
     });
 
     this._authService.createDistributor(distributor).subscribe({
-      next: (response) => console.log('Distributor registered successfully:', response),
-      error: (error) => console.error('Error registering Distributor:', error),
+      next: (response) => this.dialog.open(SuccessfulRegistrationDialogComponent),
+      error: () => this.dialog.open(DistributorDialogComponent),
     });
   }
 }
