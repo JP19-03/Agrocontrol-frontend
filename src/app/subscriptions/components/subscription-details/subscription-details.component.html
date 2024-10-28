@@ -1,0 +1,11 @@
+<div class="flex flex-col gap-4 p-6 bg-white rounded-lg shadow-md max-w-md">
+  <h2 class="text-xl font-bold text-gray-800 uppercase">What's included in your subscription</h2>
+  <div class="flex flex-col gap-2 p-2 rounded-md">
+    @for (detail of details; track detail) {
+      <div class="flex items-center justify-between">
+        <span class="text-gray-700">{{detail}}</span>
+        <mat-icon class="text-green-500">check_circle_outline</mat-icon>
+      </div>
+    }
+  </div>
+</div>
