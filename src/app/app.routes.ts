@@ -21,6 +21,10 @@ import {
 } from "./agricultural-process/pages/crop-treatment-view/crop-treatment-view.component";
 import {FinanceViewComponent} from "./agricultural-process/pages/finance-view/finance-view.component";
 import {IrrigationHistoryComponent} from "./agricultural-process/pages/irrigation-history/irrigation-history.component";
+import {
+  SubscriptionSelectionComponent
+} from "./subscriptions/pages/subscription-selection/subscription-selection.component";
+
 import {TestComponent} from "./agricultural-process/pages/test/test.component";
 
 export const routes: Routes = [
@@ -37,6 +41,10 @@ export const routes: Routes = [
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
+  },
+  {
+    path: 'subscription-selection',
+    component: SubscriptionSelectionComponent,
   },
   {
     path: 'field/:role/:id',

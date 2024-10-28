@@ -1,24 +1,31 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { NgIf } from '@angular/common';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import {NgForOf, NgIf} from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-subscription-details',
   standalone: true,
-  imports: [NgIf, MatIcon],
+  imports: [NgIf, MatIcon, NgForOf],
   templateUrl: './subscription-details.component.html',
-  styleUrls: ['./subscription-details.component.css'], // Corregido 'styleUrl' a 'styleUrls'
+  styleUrls: ['./subscription-details.component.css'],
 })
-export class SubscriptionDetailsComponent implements OnInit {
+export class SubscriptionDetailsComponent implements OnInit, OnChanges {
   @Input() subscriptionType!: number;
   details: Array<string> = [];
 
   ngOnInit(): void {
     this.getDetails();
-    console.log('subscriptionType', this.subscriptionType);
+    console.log('Initial subscriptionType:', this.subscriptionType);
   }
 
-  private getDetails(): void { // Añadido 'private' para encapsulación
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['subscriptionType']) {
+      this.getDetails(); // Update details if subscriptionType changes
+      console.log('Updated subscriptionType:', this.subscriptionType);
+    }
+  }
+
+  private getDetails(): void {
     switch (this.subscriptionType) {
       case 1:
         this.details = [
@@ -51,5 +58,9 @@ export class SubscriptionDetailsComponent implements OnInit {
         ];
         break;
     }
+  }
+
+  trackByDetail(index: number, detail: string): string {
+    return detail; // Using the detail string itself as the unique identifier
   }
 }
