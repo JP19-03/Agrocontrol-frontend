@@ -42,10 +42,6 @@ export const routes: Routes = [
     component: SubscriptionSelectionComponent,
   },
   {
-    path: 'products-inventory',
-    component: ProductsInventoryComponent,
-  },
-  {
     path: 'field/:role/:id',
     component: FieldsViewComponent,
     data: { name: 'field' }
@@ -89,8 +85,11 @@ export const routes: Routes = [
         path: 'finance-view',
         component: FinanceViewComponent,
         data: { name: 'finance-view' }
-      }
-
+      },
+      {
+        path: 'products-inventory',
+        component: ProductsInventoryComponent,
+      },
     ]
   }
 ];
