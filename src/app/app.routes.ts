@@ -24,14 +24,9 @@ import {IrrigationHistoryComponent} from "./agricultural-process/pages/irrigatio
 import {
   SubscriptionSelectionComponent
 } from "./subscriptions/pages/subscription-selection/subscription-selection.component";
-
-import {TestComponent} from "./agricultural-process/pages/test/test.component";
+import {ProductsInventoryComponent} from "./store/pages/products-inventory/products-inventory.component";
 
 export const routes: Routes = [
-  {
-    path: 'test',
-    component: TestComponent,
-  },
   {
     path: 'login',
     component: LoginFormComponent,
@@ -45,6 +40,10 @@ export const routes: Routes = [
   {
     path: 'subscription-selection',
     component: SubscriptionSelectionComponent,
+  },
+  {
+    path: 'products-inventory',
+    component: ProductsInventoryComponent,
   },
   {
     path: 'field/:role/:id',

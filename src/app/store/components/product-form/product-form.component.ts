@@ -29,24 +29,34 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
 export class ProductFormComponent {
   //#region Attributes
   @Input() showForm!: boolean;
-  product!: Product;
   @Input() userId: number = 1;
+  @Input() isEditMode: boolean = false; // Nueva propiedad
+  @Input() productToEdit?: Product; // Producto a editar
   @ViewChild('productForm', { static: false }) protected productForm!: NgForm;
   productService: ProductService = inject(ProductService);
   @Output() close = new EventEmitter<void>();
   loading: boolean = false;
   success!: boolean;
   message!: string;
+  product!: Product; // Producto que se está creando o editando
 
   //#endregion Attributes
 
   constructor() {
-    this.product = new Product({});
+    this.resetForm();
+  }
+
+  ngOnChanges() {
+    if (this.isEditMode && this.productToEdit) {
+      this.product = { ...this.productToEdit }; // Clonar el producto a editar
+    } else {
+      this.resetForm(); // Resetear el formulario si no está en modo edición
+    }
   }
 
   private resetForm(): void {
     this.product = new Product({});
-    this.productForm.resetForm();
+    this.productForm?.resetForm();
     this.message = '';
   }
 
@@ -59,25 +69,30 @@ export class ProductFormComponent {
 
       console.log('Product: ', this.product);
 
-      // Simulate loading delay of 5 seconds
+      // Lógica para crear o actualizar
+      const request = this.isEditMode
+        ? this.productService.update(this.product.id, this.product) // Llama al método de actualización
+        : this.productService.create(this.product); // Llama al método de creación
+
+      // Simulate loading delay of 3 seconds
       setTimeout(() => {
-        this.productService.create(this.product).subscribe(
+        request.subscribe(
           (response) => {
-            console.log('Product created: ', response);
-            this.message = 'Product created successfully';
+            console.log(this.isEditMode ? 'Product updated: ' : 'Product created: ', response);
+            this.message = this.isEditMode ? 'Product updated successfully' : 'Product created successfully';
             this.resetForm();
             this.success = true; // Indicate success
           },
           (error) => {
-            console.error('Error creating product: ', error);
-            this.message = 'Error creating product';
+            console.error(this.isEditMode ? 'Error updating product: ' : 'Error creating product: ', error);
+            this.message = this.isEditMode ? 'Error updating product' : 'Error creating product';
             this.success = false; // Indicate failure
           },
           () => {
             this.loading = false; // Ensure loading is false at the end of the request
           }
         );
-      }, 3000); // Delay of 5 seconds
+      }, 3000); // Delay of 3 seconds
     }
   }
 
