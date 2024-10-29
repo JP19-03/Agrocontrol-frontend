@@ -1,73 +1,50 @@
-import {Component, inject, ViewChild} from '@angular/core';
-import {FormsModule, NgForm} from "@angular/forms";
-import {MatFormField, MatLabel} from "@angular/material/form-field";
-import {MatInput} from "@angular/material/input";
+import {Component, EventEmitter, inject, Output, ViewChild} from '@angular/core';
+import {FormBuilder, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators} from "@angular/forms";
+import {MatFormField, MatFormFieldModule, MatLabel} from "@angular/material/form-field";
+import {MatInput, MatInputModule} from "@angular/material/input";
 import {User} from "../../models/user.entity";
-import {UserService} from "../../services/user.service";
-import {Router} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
+import {CommonModule, NgOptimizedImage} from "@angular/common";
+import {MatCheckbox} from "@angular/material/checkbox";
 @Component({
   selector: 'app-login-form',
   standalone: true,
-    imports: [
-        FormsModule,
-        MatFormField,
-        MatInput,
-        MatLabel
-    ],
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    CommonModule,
+    MatCheckbox,
+    NgOptimizedImage,
+    RouterLink,
+  ],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.css'
 })
 export class LoginFormComponent {
-  user!: User;
-  @ViewChild('userForm', { static: false }) userForm!: NgForm;
-  userService: UserService = inject(UserService);
-  router: Router = inject(Router);
+  @Output() userLogged = new EventEmitter<User>();
 
-  constructor() {
-    this.user = new User({});
-  }
+  hide = true;  // Para la visibilidad de la contraseña
+  private fb: FormBuilder = new FormBuilder();
+  public loginForm: FormGroup = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]]
+  });
 
-  private resetForm() {
-    this.userForm.resetForm();
-    this.user = new User({});
-  }
+  constructor() {}
 
+  // Método para manejar el envío del formulario
   onSubmit() {
-    if (this.userForm.valid) {
-      this.userService.getAll().subscribe(
-        (response: User[]) => {
-          const foundUser = response.find((user: User) =>
-            user.username === this.userForm.value.username &&
-            user.password === this.userForm.value.password
-          );
-
-          if (foundUser) {
-            console.log('User logged in:', foundUser);
-            localStorage.setItem('user', JSON.stringify(foundUser)); // Guardar el usuario encontrado
-
-            // Obtener el ID y el rol del usuario guardado en localStorage
-            const storedUser = localStorage.getItem('user');
-            if (storedUser) {
-              const userObj = JSON.parse(storedUser);
-              const userId = userObj.id; // Aquí obtenemos el ID del usuario
-              const userRole = userObj.roles; // Aquí obtenemos el rol del usuario
-
-              // Redirigir a otra página usando el Router con el rol y el ID
-              this.router.navigate([`field/${userRole}/${userId}`]); // Navega a la ruta con el rol y el ID del usuario
-            }
-
-            this.resetForm();
-          } else {
-            console.log('Invalid username or password');
-          }
-        },
-        (error) => {
-          console.error('Error fetching users:', error);
-        }
-      );
+    if (this.loginForm.valid) {
+      const user: User = this.loginForm.value;
+      console.log('Login data:', user);
+      this.userLogged.emit(user);  // Emitimos el evento
     } else {
       console.log('Form is invalid');
     }
   }
-
 }

@@ -9,7 +9,7 @@
     <a href="#" class="block py-2">Harvest</a>
     <a [routerLink]="['products-inventory']" class="block py-2">Store</a>
     <a [routerLink]="['finance-view']" class="block py-2" disabled>Finances</a>
-    <a href="#" class="block py-2">Log Out</a>
+    <a (click)="logOut()" class="block py-2">Log Out</a>
   </nav>
 </div>
 
