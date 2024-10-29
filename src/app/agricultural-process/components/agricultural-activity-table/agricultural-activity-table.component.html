@@ -14,6 +14,11 @@
     <td mat-cell *matCellDef="let element" class="!text-center !font-semibold"> {{element.date}} </td>
   </ng-container>
 
+  <ng-container matColumnDef="activityStatus">
+    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> Status </th>
+    <td mat-cell *matCellDef="let element" class="!text-center !font-semibold"> {{element.activityStatus}} </td>
+  </ng-container>
+
   <ng-container matColumnDef="workersTotalCost">
     <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> Workers Total Cost </th>
     <td mat-cell *matCellDef="let element" class="!text-center !font-semibold"> {{element.workersTotalCost}} </td>
@@ -45,6 +50,30 @@
       </ng-container>
     </td>
   </ng-container>
+
+  <ng-container matColumnDef="treatmentType">
+    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> Type </th>
+    <td mat-cell *matCellDef="let element" class="!text-center !font-semibold">
+      <ng-container *ngIf="element.treatmentType !== null">
+        {{element.treatmentType}}
+      </ng-container>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="resources">
+    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> Resources </th>
+    <td mat-cell *matCellDef="let element" class="!text-center !font-semibold">
+      <button (click)="showPopup(element.resources)" mat-icon-button>
+        <mat-icon>info</mat-icon>
+      </button>
+      <app-resources-table
+        [showTable]="showTable"
+        [dataSource]="selectedResources"
+        (close)="handleClosed($event)"
+      ></app-resources-table>
+    </td>
+  </ng-container>
+
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

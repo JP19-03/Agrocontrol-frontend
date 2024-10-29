@@ -2,11 +2,11 @@ import {Component, inject, OnInit} from '@angular/core';
 import {
   AgriculturalActivityTableComponent
 } from "../../components/agricultural-activity-table/agricultural-activity-table.component";
-import {AgriculturalActivityService} from "../../services/agricultural-activity.service";
 import {AgriculturalActivity} from "../../models/agricultural-activity.entity";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatButtonModule} from '@angular/material/button';
 import {RouterLink} from "@angular/router";
+import {AgriculturalProcessService} from "../../services/agricultural-process.service";
 
 
 @Component({
@@ -22,8 +22,10 @@ import {RouterLink} from "@angular/router";
 })
 export class IrrigationHistoryComponent implements OnInit {
   protected dataSource!: MatTableDataSource<any>;
-  protected displayedColumns: string[] = ['id', 'date', 'workersTotalCost', 'hoursIrrigated'];
-  private activityService: AgriculturalActivityService = inject(AgriculturalActivityService);
+  protected displayedColumns: string[] = ['id', 'date', 'workersTotalCost',  'activityStatus', 'hoursIrrigated', 'resources'];
+  private activityService: AgriculturalProcessService = inject(AgriculturalProcessService);
+  private agriculturalProcessId: number = 2;
+  private activityType: String = 'IRRIGATION';
 
   constructor() {
     this.dataSource = new MatTableDataSource<any>();
@@ -34,10 +36,9 @@ export class IrrigationHistoryComponent implements OnInit {
   }
 
   getAllActivities(): void {
-    this.activityService.getAll().subscribe((response: Array<AgriculturalActivity>) => {
-      const irrigations= response.filter((activity: AgriculturalActivity) => activity.activityType === 'IRRIGATION');
-      this.dataSource.data = irrigations;
-      console.log(irrigations);
-    });
+    this.activityService.getActivitiesByAgriculturalProcessId(this.agriculturalProcessId, this.activityType)
+      .subscribe((data: Array<AgriculturalActivity>) => {
+        this.dataSource.data = data;
+      });
   }
 }

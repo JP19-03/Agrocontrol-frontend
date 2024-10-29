@@ -21,6 +21,12 @@ export class AgriculturalProcessService extends BaseService<AgriculturalProcess>
       .pipe(retry(2), catchError(this.handleError));
   }
 
+  getActivitiesByAgriculturalProcessId(agriculturalProcessId: number, activityType: String) {
+    const headers = this.getHeadersAuthorization();
+    return this.http.get<Array<AgriculturalActivity>>(`${this.resourcePath()}/${agriculturalProcessId}/activities/${activityType}`, {headers})
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
   getHeadersAuthorization() {
     return {
       "Content-Type": "application/json",

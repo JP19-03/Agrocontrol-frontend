@@ -1,0 +1,26 @@
+<div class="p-4 w-full flex flex-col">
+  <h2 class="text-4xl font-bold mb-4">Products</h2>
+  <!-- Botón de Agregar Producto -->
+  <div class="flex justify-end">
+    <button (click)="showPopup()"
+            class="flex items-center bg-green-500 text-white rounded-lg px-4 py-2 hover:bg-green-600 transition duration-300">
+      <mat-icon>add</mat-icon>
+      <span class="ml-2">Add Product</span> <!-- Añade texto descriptivo -->
+    </button>
+  </div>
+
+  <!-- Formulario de Producto -->
+  <app-product-form
+    [showForm]="showForm"
+    [isEditMode]="isEditMode"
+    [productToEdit]="productToEdit"
+    (close)="handleClosed($event)"
+  />
+
+  <!-- Lista de Productos -->
+  <app-products-list
+    [products]="products"
+    (edit)="openFormForEdit($event)"
+    class="mt-4"
+  />
+</div>

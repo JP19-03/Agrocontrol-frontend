@@ -7,6 +7,8 @@ export class AgriculturalActivity {
   hoursIrrigated: number;
   plantType: string;
   quantityPlanted: number;
+  treatmentType: string;
+  resources: any;
 
   constructor(agriculturalActivity:{
     id?: number;
@@ -17,6 +19,8 @@ export class AgriculturalActivity {
     hoursIrrigated?: number;
     plantType?: string;
     quantityPlanted?: number;
+    treatmentType?: string;
+    resources?: any;
   }) {
     this.id = agriculturalActivity.id || 0;
     this.agriculturalProcessId = agriculturalActivity.agriculturalProcessId || 0;
@@ -26,5 +30,7 @@ export class AgriculturalActivity {
     this.hoursIrrigated = agriculturalActivity.hoursIrrigated || 0;
     this.plantType = agriculturalActivity.plantType || "";
     this.quantityPlanted = agriculturalActivity.quantityPlanted || 0;
+    this.treatmentType = agriculturalActivity.treatmentType || "";
+    this.resources = agriculturalActivity.resources || {};
   }
 }
