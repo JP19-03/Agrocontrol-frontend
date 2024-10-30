@@ -22,7 +22,7 @@ import {FieldFormEditComponent} from "../field-form-edit/field-form-edit.compone
   styleUrl: './card-field-list.component.css'
 })
 export class CardFieldListComponent implements OnInit {
-  fields: Fields[] = [];
+  fields: Array<Fields> = [];
   @Input() currentUserId!: number;
   isModalOpen: boolean = false;
   isEditModalOpen: boolean = false; // Nueva variable para manejar el modal de edición
@@ -35,13 +35,8 @@ export class CardFieldListComponent implements OnInit {
   }
 
   loadFields(): void {
-    this.fieldService.getAll().subscribe({
-      next: (data) => {
-        this.fields = data.filter((field) => field.producerId === this.currentUserId);
-      },
-      error: (error) => {
-        console.log('Error fetching fields:', error);
-      }
+    this.fieldService.getFieldsByUserId(this.currentUserId).subscribe((fields) => {
+      this.fields = fields;
     });
   }
 
