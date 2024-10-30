@@ -37,7 +37,7 @@ export class CardFieldListComponent implements OnInit {
   loadFields(): void {
     this.fieldService.getAll().subscribe({
       next: (data) => {
-        this.fields = data.filter((field) => field.userId === this.currentUserId);
+        this.fields = data.filter((field) => field.producerId === this.currentUserId);
       },
       error: (error) => {
         console.log('Error fetching fields:', error);

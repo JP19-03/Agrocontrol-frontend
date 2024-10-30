@@ -36,7 +36,7 @@ export class FieldFormEditComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.field.userId= this.currentUserId;
+    this.field.producerId= this.currentUserId;
   }
   private resetForm(){
     this.fieldForm.resetForm();

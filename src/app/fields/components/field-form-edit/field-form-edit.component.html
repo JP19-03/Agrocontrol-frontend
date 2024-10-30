@@ -9,11 +9,11 @@
       </mat-form-field>
       <mat-form-field appearance="fill" class="mb-4">
         <mat-label>Area Size</mat-label>
-        <input matInput type="number" placeholder="Area Size (e.g., acres)" name="areaSize" [(ngModel)]="field.fieldSize" required>
+        <input matInput type="number" placeholder="Area Size (e.g., acres)" name="areaSize" [(ngModel)]="field.size" required>
       </mat-form-field>
       <mat-form-field appearance="fill" class="mb-4">
         <mat-label>Location</mat-label>
-        <input matInput placeholder="Location" name="location" [(ngModel)]="field.fieldLocation" required>
+        <input matInput placeholder="Location" name="location" [(ngModel)]="field.location" required>
       </mat-form-field>
       <div class="flex flex-col sm:flex-row justify-between mt-4">
         <button [disabled]="fieldForm.invalid" class="bg-primary px-4 py-2 text-white uppercase rounded hover:bg-primary-hover mb-2 sm:mb-0">Save</button>

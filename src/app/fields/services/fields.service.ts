@@ -11,4 +11,9 @@ export class FieldsService extends BaseService<Fields>{
     super();
     this.resourceEndpoint='/fields'
   }
+
+  getFieldsByUserId(userId: number) {
+    this.setToken();
+    return this.http.get(`${this.resourcePath()}/user/${userId}`, this.httpOptionsAuthorized)
+  }
 }

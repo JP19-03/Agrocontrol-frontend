@@ -2,8 +2,8 @@
   <img mat-card-image src="/assets/img/fields1.png" alt="Photo of a Shiba Inu" (click)="goToHome(field.id)">
   <mat-card-content>
     <h3>{{ field.fieldName }}</h3>
-    <p>Land Size: {{ field.fieldSize }}</p>
-    <p>Location: {{ field.fieldLocation }}</p>
+    <p>Land Size: {{ field.size }}</p>
+    <p>Location: {{ field.location }}</p>
   </mat-card-content>
   <mat-card-actions class="gap-2.5 m-3">
     <button class="w-20 !bg-green-600 !text-white !rounded" mat-button (click)="openModal()">Edit</button>
@@ -14,7 +14,7 @@
 <app-field-form
   *ngIf="isModalOpen"
   [fieldId]="field.id"
-  [currentUserId]="field.userId"
+  [currentUserId]="field.producerId"
   [isModalOpen]="isModalOpen"
   (close)="closeModal()"
   (success)="onEditSuccess()"

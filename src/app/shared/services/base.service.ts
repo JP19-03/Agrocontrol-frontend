@@ -58,7 +58,8 @@ export class BaseService<T> {
   }
 
   public create(item: any): Observable<T> {
-    return this.http.post<T>(this.resourcePath(), JSON.stringify(item), this.httOptions)
+    this.setToken();
+    return this.http.post<T>(this.resourcePath(), JSON.stringify(item), this.httpOptionsAuthorized)
       .pipe(retry(2), catchError(this.handleError));
   }
 
