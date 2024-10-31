@@ -57,25 +57,32 @@ export class FieldCardComponent {
     this.closeModal();
   }
 
-  goToHome(fieldId: number) {
-    this.agriculturalProcessService.getAll().subscribe({
+  createAgriculturalProcess(fieldId: number) {
+    this.agriculturalProcessService.create(fieldId).subscribe({
       next: (response: any) => {
-        const agriculturalProcess = response.find((process: any) =>
-          process.fieldId === fieldId && !process.isFinished
-        );
+        localStorage.setItem('fieldName', this.field.fieldName);
+        localStorage.setItem('agriculturalProcessId', response.id);
+        this.router.navigate(['home-agricultural-process', response.id]);
+      },
+      error: (error) => {
+        console.error('Error creating agricultural process:', error);
+      }
+    })
+  }
 
-        if (agriculturalProcess) {
+  goToHome(fieldId: number) {
+    this.agriculturalProcessService.getUnfinishedAgriculturalProcessByFieldId(fieldId).subscribe({
+      next: (response: any) => {
+        if (response) {
           localStorage.setItem('fieldName', this.field.fieldName);
-          localStorage.setItem('agriculturalProcessId', agriculturalProcess.id);
-          this.router.navigate(['home-agricultural-process', agriculturalProcess.id]);
+          localStorage.setItem('agriculturalProcessId', response.id);
+          this.router.navigate(['home-agricultural-process', response.id]);
         } else {
-          console.log('No unfinished agricultural process found for the given field ID.');
+          this.createAgriculturalProcess(fieldId);
         }
       },
       error: (error) => {
-        console.error('Error fetching agricultural processes:', error);
-      }
-    });
+        console.error('Error getting unfinished agricultural process:', error);
+    }});
   }
-
 }

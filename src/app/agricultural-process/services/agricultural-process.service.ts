@@ -16,21 +16,21 @@ export class AgriculturalProcessService extends BaseService<AgriculturalProcess>
   }
 
   getLastActivityByType(activityType: String, agriculturalProcessId : number) {
-    const headers = this.getHeadersAuthorization();
-    return this.http.get<AgriculturalActivity>(`${this.resourcePath()}/${agriculturalProcessId}/lastActivity/${activityType}`, {headers})
+    this.setToken();
+    return this.http.get<AgriculturalActivity>(`${this.resourcePath()}/${agriculturalProcessId}/lastActivity/${activityType}`, this.httpOptionsAuthorized)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   getActivitiesByAgriculturalProcessId(agriculturalProcessId: number, activityType: String) {
-    const headers = this.getHeadersAuthorization();
-    return this.http.get<Array<AgriculturalActivity>>(`${this.resourcePath()}/${agriculturalProcessId}/activities/${activityType}`, {headers})
+    this.setToken();
+    return this.http.get<Array<AgriculturalActivity>>(`${this.resourcePath()}/${agriculturalProcessId}/activities/${activityType}`, this.httpOptionsAuthorized)
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getHeadersAuthorization() {
-    return {
-      "Content-Type": "application/json",
-      "accept": "application/json"
-    }
+  getUnfinishedAgriculturalProcessByFieldId(fieldId: number) {
+    this.setToken();
+    return this.http.get<AgriculturalProcess>(`${this.resourcePath()}/field/${fieldId}/unfinished`, this.httpOptionsAuthorized)
+      .pipe(retry(2), catchError(this.handleError));
   }
+
 }

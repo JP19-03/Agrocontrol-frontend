@@ -31,7 +31,8 @@ export class WorkerManagementComponent implements OnInit{
   }
 
   getWorkers() {
-    this.workerService.getAll().subscribe((response: Array<Worker>) => this.dataSource = response);
+    const userId = parseInt(localStorage.getItem('userId') || '');
+    this.workerService.getAllWorkersByProducerId(userId).subscribe((response: Array<Worker>) => this.dataSource = response);
   }
 
   handleSuccess() {

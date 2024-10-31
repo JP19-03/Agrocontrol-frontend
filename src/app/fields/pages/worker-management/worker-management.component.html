@@ -1,20 +1,20 @@
-<div class="flex flex-col items-center">
+<div class="flex flex-col space-y-6 mt-4 p-2">
   <button
     mat-raised-button
     color="primary"
     (click)="openModal()"
-    class="mt-4 w-full max-w-xs bg-blue-600 text-white rounded-lg py-2 px-4 transition-transform transform hover:scale-105 shadow-lg"
+    class="!w-full !max-w-xs !bg-blue-600 !text-white !rounded-lg !py-2 !px-4 !transition-transform !transform !hover:scale-105 !shadow-lg"
   >
     Add Worker
   </button>
 
-  <app-workers-field-table [workers]="dataSource" class="mt-6 w-full"></app-workers-field-table>
+  <app-workers-field-table [workers]="dataSource" class="w-full"></app-workers-field-table>
 
   <button
     mat-raised-button
     color="primary"
     (click)="goToHome()"
-    class="mt-4 w-full max-w-xs bg-blue-600 text-white rounded-lg py-2 px-4 transition-transform transform hover:scale-105 shadow-lg"
+    class="!w-full !max-w-xs !bg-blue-600 !text-white !rounded-lg !py-2 !px-4 !transition-transform !transform !hover:scale-105 !shadow-lg"
   >
     Return
   </button>
@@ -24,6 +24,6 @@
     (close)="closeModal()"
     [userId]="1"
     (success)="handleSuccess()"
-    class="mt-4 w-full max-w-lg"
-  />
+    class="w-full max-w-lg"
+  ></app-worker-field-form>
 </div>
