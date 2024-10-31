@@ -5,12 +5,11 @@ import { MatInput } from '@angular/material/input';
 import { MatOption } from '@angular/material/core';
 import { MatSelect } from '@angular/material/select';
 import { NgForOf, NgIf } from '@angular/common';
-import { Seeding } from '../../models/seeding.entity';
-import { SeedingService } from '../../services/seeding.service';
 import { WorkerService } from '../../../fields/services/worker.service';
 import { AgriculturalProcess } from '../../models/agricultural-process.entity';
 import { AgriculturalProcessService } from '../../services/agricultural-process.service';
 import {Router} from "@angular/router";
+import {AgriculturalActivity} from "../../models/agricultural-activity.entity";
 
 @Component({
   selector: 'app-seeding-form',
@@ -32,11 +31,10 @@ export class SeedingFormComponent implements OnInit {
   @Input() agriculturalProcessId!: number;
   today = new Date().toISOString().split('T')[0];
   success = false;
-  seeding: Seeding = new Seeding({});
+  seeding: AgriculturalActivity = new AgriculturalActivity({});
   @ViewChild('seedingForm', { static: false }) seedingForm!: NgForm;
   fieldWorkers: any = [];
   workers: { workerId: number; cost: number }[] = [{ workerId: 0, cost: 0 }];
-  seedingService: SeedingService = inject(SeedingService);
   workerService: WorkerService = inject(WorkerService);
   showWarning = false;
   agriculturalProcess!: AgriculturalProcess;
@@ -53,7 +51,7 @@ export class SeedingFormComponent implements OnInit {
 
   private resetForm() {
     this.seedingForm.resetForm();
-    this.seeding = new Seeding({ date: this.today });
+    this.seeding = new AgriculturalActivity({ date: this.today });
     this.workers = [{ workerId: 0, cost: 0 }];
   }
 
@@ -70,9 +68,7 @@ export class SeedingFormComponent implements OnInit {
   onSubmit() {
     if (this.seedingForm.valid && this.isWorkersValid()) {
       this.seeding.agriculturalProcessId = this.agriculturalProcessId;
-      this.seeding.workers = this.workers;
-      this.calculateTotalCost();
-      this.seedingService.create(this.seeding).subscribe({
+      this.agriculturalProcessService.addActivity(this.seeding).subscribe({
         next: (response) => {
           console.log('Seeding created successfully', response);
           this.resetForm();
@@ -109,11 +105,6 @@ export class SeedingFormComponent implements OnInit {
     if (this.workers.length > 1) {
       this.workers.splice(index, 1);
     }
-  }
-
-  private calculateTotalCost() {
-    this.seeding.totalWorkersCost = this.workers.reduce((acc, worker) => acc + (worker.cost || 0), 0);
-    console.log('Total Workers Cost:', this.seeding.totalWorkersCost);
   }
 
   onCancel() {

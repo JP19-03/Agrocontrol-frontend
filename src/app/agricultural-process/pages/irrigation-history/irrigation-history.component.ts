@@ -24,7 +24,7 @@ export class IrrigationHistoryComponent implements OnInit {
   protected dataSource!: MatTableDataSource<any>;
   protected displayedColumns: string[] = ['id', 'date', 'workersTotalCost',  'activityStatus', 'hoursIrrigated', 'resources'];
   private activityService: AgriculturalProcessService = inject(AgriculturalProcessService);
-  private agriculturalProcessId: number = 2;
+  private agriculturalProcessId!: number;
   private activityType: String = 'IRRIGATION';
 
   constructor() {
@@ -36,6 +36,7 @@ export class IrrigationHistoryComponent implements OnInit {
   }
 
   getAllActivities(): void {
+    this.agriculturalProcessId = parseInt(localStorage.getItem('agriculturalProcessId') || '');
     this.activityService.getActivitiesByAgriculturalProcessId(this.agriculturalProcessId, this.activityType)
       .subscribe((data: Array<AgriculturalActivity>) => {
         this.dataSource.data = data;

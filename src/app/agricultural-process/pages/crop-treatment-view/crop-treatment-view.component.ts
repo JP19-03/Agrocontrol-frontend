@@ -22,7 +22,7 @@ export class CropTreatmentViewComponent implements OnInit {
   protected dataSource!: MatTableDataSource<any>;
   protected displayedColumns: string[] = ['id', 'date', 'workersTotalCost',  'activityStatus', 'treatmentType', 'resources'];
   private activityService: AgriculturalProcessService = inject(AgriculturalProcessService);
-  private agriculturalProcessId: number = 2;
+  private agriculturalProcessId!: number;
   private activityType: String = 'CROP_TREATMENT';
 
   constructor() {
@@ -34,6 +34,7 @@ export class CropTreatmentViewComponent implements OnInit {
   }
 
   getAllActivities(): void {
+    this.agriculturalProcessId = parseInt(localStorage.getItem('agriculturalProcessId') || '');
     this.activityService.getActivitiesByAgriculturalProcessId(this.agriculturalProcessId, this.activityType)
       .subscribe((data: Array<AgriculturalActivity>) => {
         this.dataSource.data = data;

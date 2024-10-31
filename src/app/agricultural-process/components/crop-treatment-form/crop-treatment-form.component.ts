@@ -78,7 +78,7 @@ export class CropTreatmentFormComponent implements OnInit {
       // Filtra los productos válidos
       this.cropTreatment.resources = this.products;
       console.log('Crop Treatment', this.cropTreatment);
-      this.activityService.create(this.cropTreatment).subscribe((response: any) => {
+      this.activityService.addActivity(this.cropTreatment).subscribe((response: any) => {
         console.log('Crop Treatment created', response);
         this.success = true;
       }, error => {
