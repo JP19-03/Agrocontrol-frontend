@@ -325,5 +325,37 @@
       "totalCost": 500,
       "quantity": 50
     }
+  ],
+  "agriculturalActivities": [
+    {
+      "id": 1,
+      "agriculturalProcessId": 1,
+      "activityType": "IRRIGATION",
+      "date": "2024-09-28",
+      "workersTotalCost": 200,
+      "hoursIrrigated": 5,
+      "plantType": null,
+      "quantityPlanted": null
+    },
+    {
+      "id": 2,
+      "agriculturalProcessId": 1,
+      "activityType": "SEEDING",
+      "date": "2024-09-15",
+      "workersTotalCost": 100,
+      "hoursIrrigated": null,
+      "plantType": "Tomato",
+      "quantityPlanted": 1000
+    },
+    {
+      "id": 3,
+      "agriculturalProcessId": 1,
+      "activityType": "IRRIGATION",
+      "date": "2024-09-28",
+      "workersTotalCost": 300,
+      "hoursIrrigated": 8,
+      "plantType": null,
+      "quantityPlanted": null
+    }
   ]
 }

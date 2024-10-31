@@ -1,0 +1,75 @@
+<mat-card appearance="outlined" *ngIf="agriculturalActivity" class="!border !border-gray-300 !rounded-lg !shadow-md !p-1 !max-w-full">
+  <mat-card-title class="!text-xl !font-bold !text-gray-900 !mb-2 md:!text-2xl">
+    <h2 class="!m-0"><span *ngIf="agriculturalActivity.activityType !== 'SEEDING'">Upcoming </span>{{ agriculturalActivity.activityType }}</h2>
+  </mat-card-title>
+    <div class="flex flex-col md:flex-row gap-4 items-center">
+      <!-- Images Section -->
+      <div class="flex flex-col items-center space-y-2">
+        <img *ngIf="agriculturalActivity.activityType === 'SEEDING'"
+             class="w-32 h-32"
+             mat-card-image
+             src="https://th.bing.com/th/id/R.7f7e9843f1c861c7a31629799ff3053e?rik=IFmbl8f3y7vq3Q&pid=ImgRaw&r=0"
+             alt="Irrigation image">
+        <img *ngIf="agriculturalActivity.activityType === 'IRRIGATION'"
+             class="w-64 h-28"
+             mat-card-image
+             src="https://th.bing.com/th/id/OIP.UJblYuZLSdGUgpti5T6BKQHaFy?rs=1&pid=ImgDetMain"
+             alt="Irrigation image">
+        <img *ngIf="agriculturalActivity.activityType === 'CROP_TREATMENT'"
+             class="w-32 h-32 md:w-40 md:h-40"
+             mat-card-image
+             src="https://th.bing.com/th/id/OIP.6N0TmOnAP_jtGo1XFINP4wAAAA?rs=1&pid=ImgDetMain"
+             alt="Crop Treatment image">
+        <img *ngIf="agriculturalActivity.activityType === 'HARVEST'"
+             class="w-32 h-32 md:w-40 md:h-40"
+             mat-card-image
+             src="https://agraria.pe/imgs/a/lx/necesitamos-que-el-agricultor-llegue-mas-rapido-al-mercado-16456.jpg"
+             alt="Harvest image">
+      </div>
+
+      <!-- Details Section -->
+      <div class="flex flex-col" *ngIf="agriculturalActivity.activityType === 'SEEDING'">
+
+        <div class="text-center">
+          <div class="flex justify-between items-center gap-2">
+            <p class="text-gray-600 text-sm md:text-lg">Plant Type:</p>
+            <p class="text-gray-800 font-semibold md:text-lg">{{ agriculturalActivity.plantType }}</p>
+          </div>
+
+          <div class="flex justify-between items-center gap-2">
+            <p class="text-gray-600 text-sm md:text-lg">Qty Planted:</p>
+            <p class="text-gray-800 font-semibold md:text-lg">{{ agriculturalActivity.quantityPlanted }}</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flex space-x-4" *ngIf="agriculturalActivity.activityType !== 'SEEDING'">
+          <div class="flex justify-between items-center gap-2">
+            <p class="text-gray-600 text-sm md:text-lg">Date:</p>
+            <p class="text-gray-800 font-semibold md:text-lg">{{ agriculturalActivity.date }}</p>
+          </div>
+
+          <div class="flex justify-between items-center gap-2">
+            <p class="text-gray-600 text-sm md:text-lg">Status:</p>
+            <p
+              class="font-semibold md:text-lg
+                     {{ agriculturalActivity.activityStatus === 'NOT_STARTED' ? 'text-white bg-gray-500' : '' }}
+                     {{ agriculturalActivity.activityStatus === 'IN_PROGRESS' ? 'text-white bg-yellow-500' : '' }}
+                     {{ agriculturalActivity.activityStatus === 'FINISHED' ? 'text-white bg-green-500' : '' }}
+                     {{ agriculturalActivity.activityStatus === 'CANCELLED' ? 'text-white bg-red-500' : '' }}
+                     py-1 px-2 rounded">
+              {{ agriculturalActivity.activityStatus }}
+            </p>
+          </div>
+      </div>
+      </div>
+  <mat-card-actions class="flex justify-end gap-4 !p-0 !min-h-0 mt-1 md:mt-0" *ngIf="agriculturalActivity.activityType !== 'SEEDING'">
+    <button class="bg-primary px-4 py-2 text-white font-semibold uppercase rounded-lg shadow-md hover:bg-primary-hover transition-all duration-300 ease-in-out">START</button>
+    <button class="bg-red-600 px-4 py-2 text-white font-semibold uppercase rounded-lg shadow-md hover:bg-red-700 transition-all duration-300 ease-in-out">CANCEL</button>
+  </mat-card-actions>
+</mat-card>
+
+<div *ngIf="!agriculturalActivity" class="flex justify-center items-center">
+  <p class="text-center text-gray-600">No data available</p>
+</div>

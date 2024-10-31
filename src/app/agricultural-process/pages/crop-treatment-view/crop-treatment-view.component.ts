@@ -1,30 +1,43 @@
 import {Component, inject, OnInit} from '@angular/core';
-import { CropTreatment } from "../../models/crop-treatment.entity";
 import { RouterLink } from "@angular/router";
-import {CropTreatmentTableComponent} from "../../components/crop-treatment-table/crop-treatment-table.component";
-import {CropTreatmentService} from "../../services/crop-treatment.service";
+import {
+    AgriculturalActivityTableComponent
+} from "../../components/agricultural-activity-table/agricultural-activity-table.component";
+import {MatTableDataSource} from "@angular/material/table";
+import {AgriculturalProcessService} from "../../services/agricultural-process.service";
+import {AgriculturalActivity} from "../../models/agricultural-activity.entity";
 
 @Component({
   selector: 'app-crop-treatment-view',
   standalone: true,
-  imports: [
-    RouterLink,
-    CropTreatmentTableComponent
-  ],
+    imports: [
+        RouterLink,
+        AgriculturalActivityTableComponent
+    ],
   templateUrl: './crop-treatment-view.component.html',
   styleUrl: './crop-treatment-view.component.css'
 })
 
 export class CropTreatmentViewComponent implements OnInit {
+  protected dataSource!: MatTableDataSource<any>;
+  protected displayedColumns: string[] = ['id', 'date', 'workersTotalCost',  'activityStatus', 'treatmentType', 'resources'];
+  private activityService: AgriculturalProcessService = inject(AgriculturalProcessService);
+  private agriculturalProcessId!: number;
+  private activityType: String = 'CROP_TREATMENT';
 
-  private _cropTreatmentService : CropTreatmentService = inject(CropTreatmentService);
-  protected dataSource!: Array<CropTreatment>;
-
-  ngOnInit() : void  {
-    this._getCropTreatments();
+  constructor() {
+    this.dataSource = new MatTableDataSource<any>();
   }
 
-  private _getCropTreatments(): void {
-    this._cropTreatmentService.getAll().subscribe((response: Array<CropTreatment>) => this.dataSource = response);
+  ngOnInit(): void {
+    this.getAllActivities();
+  }
+
+  getAllActivities(): void {
+    this.agriculturalProcessId = parseInt(localStorage.getItem('agriculturalProcessId') || '');
+    this.activityService.getActivitiesByAgriculturalProcessId(this.agriculturalProcessId, this.activityType)
+      .subscribe((data: Array<AgriculturalActivity>) => {
+        this.dataSource.data = data;
+      });
   }
 }

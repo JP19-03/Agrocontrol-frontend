@@ -1,0 +1,16 @@
+<mat-card style="margin: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden;">
+  <img mat-card-image
+       [src]="product.photoUrl || 'https://th.bing.com/th/id/OIP.HBh4qLAGWTtaaoTj-F3ySgHaHa?rs=1&pid=ImgDetMain'"
+       alt="{{ product.name }}"
+       style="width: 100%; height: auto; max-height: 200px; object-fit: cover;">
+  <mat-card-content style="padding: 16px; background-color: #fff;">
+    <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">{{ product.name }}</p>
+    <p style="margin: 0; font-size: 1rem; color: #333;">Quantity Per Unit: {{ product.quantityPerUnit }}</p>
+    <p style="margin: 4px 0; font-size: 1.2rem; font-weight: bold; color: #2FB95D;">Price: ${{ product.unitPrice }}</p>
+    <p style="margin: 0; color: #777;">Available: {{ product.quantity }}</p>
+  </mat-card-content>
+  <mat-card-actions style="padding: 16px; display: flex; justify-content: space-between;">
+    <button mat-button (click)="editProduct()" style="color: #2FB95D; font-weight: bold;">EDIT</button>
+    <button mat-button style="color: #2FB95D; font-weight: bold;">SHARE</button>
+  </mat-card-actions>
+</mat-card>

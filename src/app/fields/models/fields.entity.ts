@@ -1,22 +1,15 @@
 export class Fields {
   id:number;
-  userId:number;
+  producerId:number;
   fieldName:string;
-  fieldSize:number;
-  fieldLocation:string;
+  location:string;
+  size:number;
 
-  constructor(fields:{
-    id?:number;
-    userId?:number;
-    fieldName?:string;
-    fieldSize?:number;
-    fieldLocation?:string;
-  }) {
-    this.id=fields.id || 0;
-    this.userId = fields.userId || 0;
-    this.fieldName= fields.fieldName || '';
-    this.fieldSize=fields.fieldSize || 0;
-    this.fieldLocation=fields.fieldLocation || '';
-
+  constructor(fields: {id?: number, producerId?: number, fieldName?: string, location?: string, size?: number}) {
+    this.id = fields.id || 0;
+    this.producerId = fields.producerId || 0;
+    this.fieldName = fields.fieldName || '';
+    this.location = fields.location || '';
+    this.size = fields.size || 0;
   }
 }

@@ -40,7 +40,7 @@ export class WorkerFieldFormComponent {
 
   onSubmit() {
     if (this.workerForm.form.valid) {
-      this.worker.userId = this.userId;
+      this.worker.producerId = this.userId;
       this.workerService.create(this.worker).subscribe((response: any) => {
         console.log('Worker created', response);
       })

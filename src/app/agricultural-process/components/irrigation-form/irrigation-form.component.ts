@@ -1,7 +1,6 @@
-import {Component, inject, Input, ViewChild} from '@angular/core';
+import {Component, inject, Input, OnInit, ViewChild} from '@angular/core';
 import {Irrigation} from "../../models/irrigation.entity";
 import {FormsModule, NgForm} from "@angular/forms";
-import {IrrigationService} from "../../services/irrigation.service";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {WorkerService} from "../../../fields/services/worker.service";
@@ -9,6 +8,8 @@ import {MatOption, MatSelect} from "@angular/material/select";
 import {MatButton} from "@angular/material/button";
 import {NgForOf, NgIf} from "@angular/common";
 import {Router} from "@angular/router";
+import {AgriculturalActivity} from "../../models/agricultural-activity.entity";
+import {AgriculturalProcessService} from "../../services/agricultural-process.service";
 
 @Component({
   selector: 'app-irrigation-form',
@@ -27,13 +28,13 @@ import {Router} from "@angular/router";
   templateUrl: './irrigation-form.component.html',
   styleUrl: './irrigation-form.component.css'
 })
-export class IrrigationFormComponent {
+export class IrrigationFormComponent implements OnInit {
 
   @Input() agriculturalProcessId!: number;
   @Input() date!: string;
 
   success = false;
-  irrigation!: Irrigation;
+  irrigation!: AgriculturalActivity;
 
   @ViewChild('irrigationForm', { static: false }) irrigationForm!: NgForm;
 
@@ -43,19 +44,24 @@ export class IrrigationFormComponent {
     { workerId: 0, cost: 0 }
   ];
 
-  irrigationService: IrrigationService = inject(IrrigationService);
+  irrigationService: AgriculturalProcessService = inject(AgriculturalProcessService);
   workerService: WorkerService = inject(WorkerService);
 
   showWarning = false;
+  userId!: number;
 
   constructor(private router: Router) {
-    this.irrigation = new Irrigation({});
+    this.irrigation = new AgriculturalActivity({});
+  }
+
+  ngOnInit() {
+    this.userId = localStorage.getItem('userId') ? parseInt(localStorage.getItem('userId') || '') : 0;
     this.getWorkers();
   }
 
   private resetForm() {
     this.irrigationForm.resetForm();
-    this.irrigation = new Irrigation({});
+    this.irrigation = new AgriculturalActivity({});
     this.workers = [
       { workerId: 0, cost: 0 }
     ]; // Reset workers array
@@ -66,8 +72,6 @@ export class IrrigationFormComponent {
       this.irrigation.agriculturalProcessId = this.agriculturalProcessId;
       this.irrigation.date = this.date;
       // Filtra los trabajadores válidos
-      this.irrigation.workers = this.workers;
-      this.calculateTotalCost();
       console.log('Irrigation', this.irrigation);
 
       this.irrigationService.create(this.irrigation).subscribe((response: any) => {
@@ -86,8 +90,8 @@ export class IrrigationFormComponent {
   }
 
   getWorkers() {
-    this.workerService.getAll().subscribe((response: any) => {
-      this.fieldWorkers = response;
+    this.workerService.getAllWorkersByProducerId(this.userId).subscribe((workers: any) => {
+      this.fieldWorkers = workers;
     });
   }
 
@@ -105,16 +109,11 @@ export class IrrigationFormComponent {
     }
   }
 
-  calculateTotalCost() {
-    this.irrigation.totalWorkersCost = this.workers.reduce((acc, worker) => acc + (worker.cost || 0), 0);
-    console.log('Total Workers Cost:', this.irrigation.totalWorkersCost);
-  }
-
 
   onCancel() {
     this.resetForm();
     this.success = false;
-    this.router.navigate(['/irrigation-view'])
+    this.router.navigate(['/irrigation-history'])
   }
 
 }

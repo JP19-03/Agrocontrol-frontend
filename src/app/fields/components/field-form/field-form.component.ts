@@ -40,7 +40,7 @@ export class FieldFormComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.field.userId= this.currentUserId;
+    this.field.producerId= this.currentUserId;
   }
   private resetForm(){
     this.fieldForm.resetForm();
@@ -57,6 +57,7 @@ export class FieldFormComponent implements OnInit{
           this.isModalOpen = false;
         });
       } else {
+        console.log('Field', this.field);
         this.fieldService.create(this.field).subscribe((response: any) => {
           console.log('Field Created', response);
           this.success.emit();

@@ -1,20 +1,34 @@
-<div class="overflow-x-auto p-4">
+<div class="overflow-x-auto p-2">
   <table class="min-w-full bg-white border border-gray-300">
     <thead>
     <tr class="bg-gray-200 text-gray-600 text-left text-xs uppercase leading-4 font-semibold border-b border-gray-300">
-      <th class="px-4 py-2">Id</th>
       <th class="px-4 py-2">Full Name</th>
-      <th class="px-4 py-2">Phone</th>
       <th class="px-4 py-2">Document Number</th>
     </tr>
     </thead>
     <tbody class="text-gray-700 text-sm">
     <tr *ngFor="let worker of workers" class="hover:bg-gray-100">
-      <td class="px-4 py-2 border-b border-gray-300">{{ worker.id }}</td>
       <td class="px-4 py-2 border-b border-gray-300">{{ worker.fullName }}</td>
-      <td class="px-4 py-2 border-b border-gray-300">{{ worker.phone }}</td>
       <td class="px-4 py-2 border-b border-gray-300">{{ worker.documentNumber }}</td>
     </tr>
+    <td *ngIf="workers.length === 0" class="px-4 py-2 border-b border-gray-300" colspan="3">No workers found</td>
     </tbody>
   </table>
+  <button
+    *ngIf="workers.length === 0"
+    mat-raised-button
+    color="primary"
+    (click)="openModal()"
+    class="!mt-4 !w-full !max-w-xs !bg-blue-600 !text-white !rounded-lg !py-2 !px-4 !transition-transform !transform !hover:scale-105 !shadow-lg"
+  >
+    Add Worker
+  </button>
 </div>
+
+<app-worker-field-form
+  [isModalOpen]="modalOpen"
+  (close)="closeModal()"
+  [userId]="1"
+  (success)="handleSuccess()"
+  class="mt-4 w-full max-w-lg"
+/>

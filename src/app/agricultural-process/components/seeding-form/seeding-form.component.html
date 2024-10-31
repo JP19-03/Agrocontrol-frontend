@@ -21,22 +21,9 @@
         min="100"
         placeholder="Seed Quantity"
         name="plantedQuantity"
-        [(ngModel)]="seeding.plantedQuantity"
+        [(ngModel)]="seeding.quantityPlanted"
         required
-        [value]="seeding.plantedQuantity || 100"
-      >
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" class="mb-4">
-      <mat-label>Total Seed Cost</mat-label>
-      <input
-        matInput
-        type="number"
-        min="0"
-        placeholder="Total Seed Cost"
-        name="totalPlantCost"
-        [(ngModel)]="seeding.totalPlantCost"
-        required
+        [value]="seeding.quantityPlanted || 100"
       >
     </mat-form-field>
 
