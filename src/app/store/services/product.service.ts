@@ -14,15 +14,8 @@ export class ProductService extends BaseService<Product>{
   }
 
   getProductsByUserId(userId: number) {
-    const headers = this.getHeadersAuthorization();
-    return this.http.get<Array<Product>>(`${this.resourcePath()}/user/${userId}`, {headers})
+    this.setToken();
+    return this.http.get<Array<Product>>(`${this.resourcePath()}/user/${userId}`, this.httpOptionsAuthorized)
       .pipe(retry(2), catchError(this.handleError));
-  }
-
-  getHeadersAuthorization() {
-    return {
-      "Content-Type": "application/json",
-      "accept": "application/json"
-    }
   }
 }

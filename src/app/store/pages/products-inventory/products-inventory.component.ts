@@ -5,6 +5,7 @@ import {ProductFormComponent} from "../../components/product-form/product-form.c
 import {Product} from "../../models/product.entity";
 import {ProductService} from "../../services/product.service";
 import {ProductsListComponent} from "../../components/products-list/products-list.component";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-products-inventory',
@@ -13,7 +14,8 @@ import {ProductsListComponent} from "../../components/products-list/products-lis
     MatIcon,
     MatIconButton,
     ProductFormComponent,
-    ProductsListComponent
+    ProductsListComponent,
+    NgIf
   ],
   templateUrl: './products-inventory.component.html',
   styleUrl: './products-inventory.component.css'

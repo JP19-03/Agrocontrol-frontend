@@ -1,4 +1,4 @@
-import {Component, inject, Input, ViewChild} from '@angular/core';
+import {Component, inject, Input, OnInit, ViewChild} from '@angular/core';
 import {Irrigation} from "../../models/irrigation.entity";
 import {FormsModule, NgForm} from "@angular/forms";
 import {IrrigationService} from "../../services/irrigation.service";
@@ -27,7 +27,7 @@ import {Router} from "@angular/router";
   templateUrl: './irrigation-form.component.html',
   styleUrl: './irrigation-form.component.css'
 })
-export class IrrigationFormComponent {
+export class IrrigationFormComponent implements OnInit {
 
   @Input() agriculturalProcessId!: number;
   @Input() date!: string;
@@ -47,9 +47,14 @@ export class IrrigationFormComponent {
   workerService: WorkerService = inject(WorkerService);
 
   showWarning = false;
+  userId!: number;
 
   constructor(private router: Router) {
     this.irrigation = new Irrigation({});
+  }
+
+  ngOnInit() {
+    this.userId = localStorage.getItem('userId') ? parseInt(localStorage.getItem('userId') || '') : 0;
     this.getWorkers();
   }
 
@@ -86,8 +91,8 @@ export class IrrigationFormComponent {
   }
 
   getWorkers() {
-    this.workerService.getAll().subscribe((response: any) => {
-      this.fieldWorkers = response;
+    this.workerService.getAllWorkersByProducerId(this.userId).subscribe((workers: any) => {
+      this.fieldWorkers = workers;
     });
   }
 

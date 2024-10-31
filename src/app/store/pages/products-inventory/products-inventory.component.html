@@ -9,6 +9,8 @@
     </button>
   </div>
 
+  <p *ngIf="products.length === 0" class="text-center mt-4">No products available</p>
+
   <!-- Formulario de Producto -->
   <app-product-form
     [showForm]="showForm"
