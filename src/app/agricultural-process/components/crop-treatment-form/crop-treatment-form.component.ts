@@ -11,6 +11,7 @@ import {ProductService} from "../../../store/services/product.service";
 import {Router} from "@angular/router";
 import {AgriculturalActivity} from "../../models/agricultural-activity.entity";
 import {AgriculturalProcessService} from "../../services/agricultural-process.service";
+
 @Component({
   selector: 'app-crop-treatment-form',
   standalone: true,
@@ -34,14 +35,14 @@ export class CropTreatmentFormComponent implements OnInit {
   success = false;
   cropTreatment!: AgriculturalActivity;
   activityService: AgriculturalProcessService = inject(AgriculturalProcessService);
-  @ViewChild('cropTreatmentFrom', { static: false }) cropTreatmentFrom!: NgForm;
+  @ViewChild('cropTreatmentFrom', {static: false}) cropTreatmentFrom!: NgForm;
   userProducts: any = [];
   products: { productId: number; quantity: number }[] = [
-    { productId: 0, quantity: 0 }
+    {productId: 0, quantity: 0}
   ];
   fieldWorkers: any = [];
   workers: { workerId: number; cost: number }[] = [
-    { workerId: 0, cost: 0 }
+    {workerId: 0, cost: 0}
   ];
   workerService: WorkerService = inject(WorkerService);
   productService: ProductService = inject(ProductService);
@@ -62,10 +63,10 @@ export class CropTreatmentFormComponent implements OnInit {
     this.cropTreatmentFrom.resetForm();
     this.cropTreatment = new AgriculturalActivity({});
     this.workers = [
-      { workerId: 0, cost: 0 }
+      {workerId: 0, cost: 0}
     ]; // Reset workers array
     this.products = [
-      { productId: 0, quantity: 0 }
+      {productId: 0, quantity: 0}
     ]; // Reset products array
   }
 
@@ -78,12 +79,12 @@ export class CropTreatmentFormComponent implements OnInit {
       // Filtra los productos válidos
       this.cropTreatment.resources = this.products;
       console.log('Crop Treatment', this.cropTreatment);
-      this.activityService.addActivity(this.cropTreatment).subscribe((response: any) => {
+      /*this.activityService.addActivity(this.cropTreatment).subscribe((response: any) => {
         console.log('Crop Treatment created', response);
         this.success = true;
       }, error => {
         console.error('Error creating crop treatment', error);
-      });
+      });*/
 
       this.success = true;
       this.resetForm();
@@ -111,11 +112,11 @@ export class CropTreatmentFormComponent implements OnInit {
   }
 
   addWorker() {
-    this.workers.push({ workerId: 0, cost: 0 });
+    this.workers.push({workerId: 0, cost: 0});
   }
 
   addProduct() {
-    this.products.push({ productId: 0, quantity: 0 });
+    this.products.push({productId: 0, quantity: 0});
   }
 
   removeWorker(index: number) {

@@ -68,7 +68,7 @@ export class SeedingFormComponent implements OnInit {
   onSubmit() {
     if (this.seedingForm.valid && this.isWorkersValid()) {
       this.seeding.agriculturalProcessId = this.agriculturalProcessId;
-      this.agriculturalProcessService.addActivity(this.seeding).subscribe({
+      /*this.agriculturalProcessService.addActivity(this.seeding).subscribe({
         next: (response) => {
           console.log('Seeding created successfully', response);
           this.resetForm();
@@ -78,7 +78,7 @@ export class SeedingFormComponent implements OnInit {
           console.error('Error creating seeding:', err);
           this.showWarning = true;
         },
-      });
+      });*/
     } else {
       this.showWarning = true;
     }

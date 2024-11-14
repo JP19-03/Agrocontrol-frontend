@@ -57,8 +57,11 @@ export class FieldCardComponent {
     this.closeModal();
   }
 
-  createAgriculturalProcess(fieldId: number) {
-    this.agriculturalProcessService.create(fieldId).subscribe({
+  createAgriculturalProcess(fieldIdToCreate: number) {
+    let item = {
+      fieldId: fieldIdToCreate
+    }
+    this.agriculturalProcessService.create(item).subscribe({
       next: (response: any) => {
         localStorage.setItem('fieldName', this.field.fieldName);
         localStorage.setItem('agriculturalProcessId', response.id);
@@ -73,16 +76,22 @@ export class FieldCardComponent {
   goToHome(fieldId: number) {
     this.agriculturalProcessService.getUnfinishedAgriculturalProcessByFieldId(fieldId).subscribe({
       next: (response: any) => {
-        if (response) {
+        // Verifica si response tiene un ID válido
+        if (response && typeof response.id === 'number' && response.id > 0) {
+          console.log('Proceso agrícola encontrado:', response.status);
           localStorage.setItem('fieldName', this.field.fieldName);
-          localStorage.setItem('agriculturalProcessId', response.id);
+          localStorage.setItem('agriculturalProcessId', response.id.toString());
           this.router.navigate(['home-agricultural-process', response.id]);
         } else {
+          console.warn('No se encontró un proceso agrícola sin finalizar. Creando uno nuevo.');
           this.createAgriculturalProcess(fieldId);
         }
       },
       error: (error) => {
-        console.error('Error getting unfinished agricultural process:', error);
-    }});
+        console.error('Error al obtener el proceso agrícola sin finalizar:', error);
+        // Si ocurre un error, maneja la creación del proceso como respuesta predeterminada
+        this.createAgriculturalProcess(fieldId);
+      }
+    });
   }
 }

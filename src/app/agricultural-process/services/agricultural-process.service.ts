@@ -33,10 +33,40 @@ export class AgriculturalProcessService extends BaseService<AgriculturalProcess>
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  addActivity(activity: AgriculturalActivity) {
+  addActivity(
+    agriculturalProcessId: number,
+    date: string,
+    hoursIrrigated: number,
+    plantType: string ,
+    quantityPlanted: number,
+    treatmentType: string,
+    quantityInKg: number,
+    pricePerKg: number
+  ) {
     this.setToken();
-    return this.http.post<AgriculturalActivity>(`${this.resourcePath()}/add-activity`, activity, this.httpOptionsAuthorized)
-      .pipe(retry(2), catchError(this.handleError));
+
+    // Create the query string
+    // @ts-ignore
+    const params = new URLSearchParams({
+      agriculturalProcessId: agriculturalProcessId,
+      date: date,
+      hoursIrrigated: hoursIrrigated,
+      plantType: plantType,
+      quantityPlanted: quantityPlanted,
+      treatmentType: treatmentType,
+      quantityInKg: quantityInKg,
+      pricePerKg: pricePerKg
+    });
+    // Ask the backend to add the activity
+    return this.http.post<AgriculturalActivity>(
+      `${this.resourcePath()}/add-activity?${params}`,
+      {}, // Empty body because we are sending the data in the query string
+      this.httpOptionsAuthorized
+    ).pipe(
+      retry(2),
+      catchError(this.handleError)
+    );
   }
+
 
 }
