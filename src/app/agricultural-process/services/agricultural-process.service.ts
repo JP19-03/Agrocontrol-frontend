@@ -33,6 +33,12 @@ export class AgriculturalProcessService extends BaseService<AgriculturalProcess>
       .pipe(retry(2), catchError(this.handleError));
   }
 
+  executeActionOfAgriculturalActivity(activityId: number, content: any) {
+    this.setToken();
+    return this.http.put<AgriculturalActivity>(`${this.resourcePath()}/activity/${activityId}/execute`, content, this.httpOptionsAuthorized)
+      .pipe(retry(2), catchError(this.handleError));
+  }
+
   addActivity(
     agriculturalProcessId: number,
     date: string,

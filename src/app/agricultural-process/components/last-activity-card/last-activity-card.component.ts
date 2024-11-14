@@ -3,11 +3,12 @@ import {MatCardModule} from '@angular/material/card';
 import {AgriculturalProcessService} from "../../services/agricultural-process.service";
 import {AgriculturalActivity} from "../../models/agricultural-activity.entity";
 import {NgIf} from "@angular/common";
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
   selector: 'app-last-activity-card',
   standalone: true,
-  imports: [MatCardModule, NgIf],
+  imports: [MatCardModule, NgIf, MatIcon],
   templateUrl: './last-activity-card.component.html',
   styleUrl: './last-activity-card.component.css'
 })
@@ -16,7 +17,10 @@ export class LastActivityCardComponent implements OnInit {
   @Input() agriculturalProcessId!: number;
   private agriculturalProcessService: AgriculturalProcessService = inject(AgriculturalProcessService);
   agriculturalActivity!: AgriculturalActivity;
-
+  item = {
+    agriculturalProcessId: 0,
+    action: '',
+  };
 
   getAgriculturalActivity() {
     return this.agriculturalProcessService.getLastActivityByType(this.type, this.agriculturalProcessId)
@@ -27,4 +31,10 @@ export class LastActivityCardComponent implements OnInit {
     this.getAgriculturalActivity();
   }
 
+  executeActivity(id: number, agriculturalProcessId: number, action: string) {
+    this.item.agriculturalProcessId = agriculturalProcessId;
+    this.item.action = action;
+    this.agriculturalProcessService.executeActionOfAgriculturalActivity(id, this.item)
+      .subscribe(() => this.getAgriculturalActivity());
+  }
 }

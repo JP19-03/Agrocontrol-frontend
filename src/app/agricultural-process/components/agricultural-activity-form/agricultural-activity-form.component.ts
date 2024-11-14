@@ -83,12 +83,13 @@ export class AgriculturalActivityFormComponent implements OnInit {
   submitSeeding(item: any) {
     console.log('Adding seeding activity', item);
     try {
-      this.activityService.addActivity(this.agriculturalProcessId, this.date, 0, item.planType, item.quantityPlanted,
+      this.activityService.addActivity(this.agriculturalProcessId, this.date, 0, item.plantType, item.quantityPlanted,
                                         '', 0, 0)
         .subscribe((response) => {
           console.log('Seeding activity added', response);
           this.success = true;
           this.resetForm();
+          this.router.navigate(['home-agricultural-process', this.agriculturalProcessId]);
         })
     } catch (error) {
       console.error('Error adding seeding activity', error);

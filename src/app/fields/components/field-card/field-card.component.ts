@@ -1,9 +1,9 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { Fields } from "../../models/fields.entity";
-import { MatCard, MatCardActions, MatCardContent, MatCardImage } from "@angular/material/card";
-import { MatButton } from "@angular/material/button";
-import { FieldsService } from "../../services/fields.service";
-import { NgIf } from "@angular/common";
+import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
+import {Fields} from "../../models/fields.entity";
+import {MatCard, MatCardActions, MatCardContent, MatCardImage} from "@angular/material/card";
+import {MatButton} from "@angular/material/button";
+import {FieldsService} from "../../services/fields.service";
+import {NgIf} from "@angular/common";
 
 import {Router} from "@angular/router";
 import {FieldFormComponent} from "../field-form/field-form.component";
@@ -35,7 +35,8 @@ export class FieldCardComponent {
   fieldService: FieldsService = inject(FieldsService);
   agriculturalProcessService: AgriculturalProcessService = inject(AgriculturalProcessService);
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+  }
 
   onFieldDeleted(fieldId: number): void {
     this.fieldService.delete(fieldId).subscribe((response: any) => {
@@ -57,6 +58,20 @@ export class FieldCardComponent {
     this.closeModal();
   }
 
+  findSeedingActivity(agriculturalProcessId: number) {
+    this.agriculturalProcessService.getActivitiesByAgriculturalProcessId(agriculturalProcessId, "SEEDING")
+      .subscribe({
+        next: (response: any) => {
+          console.log('Seeding activity found:', response);
+          this.router.navigate(['home-agricultural-process', agriculturalProcessId]);
+        },
+        error: (error) => {
+          console.error('Error finding seeding activity:', error);
+          this.router.navigate(["activity-scheduler/Seeding"]);
+        }
+      });
+  }
+
   createAgriculturalProcess(fieldIdToCreate: number) {
     let item = {
       fieldId: fieldIdToCreate
@@ -65,7 +80,7 @@ export class FieldCardComponent {
       next: (response: any) => {
         localStorage.setItem('fieldName', this.field.fieldName);
         localStorage.setItem('agriculturalProcessId', response.id);
-        this.router.navigate(['home-agricultural-process', response.id]);
+        this.findSeedingActivity(response.id);
       },
       error: (error) => {
         console.error('Error creating agricultural process:', error);
@@ -81,7 +96,7 @@ export class FieldCardComponent {
           console.log('Proceso agrícola encontrado:', response.status);
           localStorage.setItem('fieldName', this.field.fieldName);
           localStorage.setItem('agriculturalProcessId', response.id.toString());
-          this.router.navigate(['home-agricultural-process', response.id]);
+          this.findSeedingActivity(response.id);
         } else {
           console.warn('No se encontró un proceso agrícola sin finalizar. Creando uno nuevo.');
           this.createAgriculturalProcess(fieldId);

@@ -65,9 +65,34 @@
       </div>
       </div>
   <mat-card-actions class="flex justify-end gap-4 !p-0 !min-h-0 mt-1 md:mt-0" *ngIf="agriculturalActivity.activityType !== 'SEEDING'">
-    <button class="bg-primary px-4 py-2 text-white font-semibold uppercase rounded-lg shadow-md hover:bg-primary-hover transition-all duration-300 ease-in-out">START</button>
-    <button class="bg-red-600 px-4 py-2 text-white font-semibold uppercase rounded-lg shadow-md hover:bg-red-700 transition-all duration-300 ease-in-out">CANCEL</button>
+    <!-- Start Button -->
+    <button
+      *ngIf="agriculturalActivity.activityStatus === 'NOT_STARTED'"
+      (click)="executeActivity(agriculturalActivity.id, agriculturalProcessId, 'start')"
+      class="flex items-center gap-2 bg-green-600 px-4 py-2 text-white font-semibold uppercase rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105 hover:bg-green-700">
+      <mat-icon>play_arrow</mat-icon>
+      START
+    </button>
+
+    <!-- Finish Button -->
+    <button
+      *ngIf="agriculturalActivity.activityStatus === 'IN_PROGRESS'"
+      (click)="executeActivity(agriculturalActivity.id, agriculturalProcessId, 'finish')"
+      class="flex items-center gap-2 bg-blue-600 px-4 py-2 text-white font-semibold uppercase rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-700">
+      <mat-icon>check_circle</mat-icon>
+      FINISH
+    </button>
+
+    <!-- Cancel Button -->
+    <button
+      *ngIf="agriculturalActivity.activityStatus === 'IN_PROGRESS'"
+      (click)="executeActivity(agriculturalActivity.id, agriculturalProcessId, 'cancel')"
+      class="flex items-center gap-2 bg-red-600 px-4 py-2 text-white font-semibold uppercase rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105 hover:bg-red-700">
+      <mat-icon>cancel</mat-icon>
+      CANCEL
+    </button>
   </mat-card-actions>
+
 </mat-card>
 
 <div *ngIf="!agriculturalActivity" class="flex justify-center items-center">

@@ -22,6 +22,7 @@ export class WorkerManagementComponent implements OnInit{
   modalOpen: boolean = false;
   protected dataSource!: Array<Worker>;
   private workerService: WorkerService = inject(WorkerService);
+  userId!: number;
 
   constructor(private router: Router) {
   }
@@ -31,8 +32,8 @@ export class WorkerManagementComponent implements OnInit{
   }
 
   getWorkers() {
-    const userId = parseInt(localStorage.getItem('userId') || '');
-    this.workerService.getAllWorkersByProducerId(userId).subscribe((response: Array<Worker>) => this.dataSource = response);
+    this.userId = parseInt(localStorage.getItem('userId') || '');
+    this.workerService.getAllWorkersByProducerId(this.userId).subscribe((response: Array<Worker>) => this.dataSource = response);
   }
 
   handleSuccess() {
