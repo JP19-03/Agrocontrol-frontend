@@ -1,8 +1,8 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 
 
-import { RegisterPageComponent } from './profile-management/pages/register-page/register-page.component';
-import { LoginPageComponent } from './profile-management/pages/login-page/login-page.component';
+import {RegisterPageComponent} from './profile-management/pages/register-page/register-page.component';
+import {LoginPageComponent} from './profile-management/pages/login-page/login-page.component';
 import {isNotAuthenticatedGuard} from "./profile-management/guards/is-not-authenticated-guard.guard";
 import {isAuthenticatedGuard} from "./profile-management/guards/is-authenticated-guard.guard";
 import {

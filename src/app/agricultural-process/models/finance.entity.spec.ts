@@ -1,4 +1,4 @@
-import { Finance } from './finance.entity';
+import {Finance} from './finance.entity';
 
 describe('FinanceEntity', () => {
   it('should create an instance', () => {

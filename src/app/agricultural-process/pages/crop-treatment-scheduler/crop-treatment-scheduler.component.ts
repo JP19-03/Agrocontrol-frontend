@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {CropTreatmentFormComponent} from "../../components/crop-treatment-form/crop-treatment-form.component";
 import {
   DatepickerCalendarComponent

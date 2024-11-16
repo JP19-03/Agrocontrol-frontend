@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {NgIf} from "@angular/common";
 import {MatSelectModule} from "@angular/material/select";
 import {AgriculturalProcessService} from "../../services/agricultural-process.service";
+import {ResourceFormComponent} from "../resource-form/resource-form.component";
 
 
 @Component({
@@ -19,6 +20,7 @@ import {AgriculturalProcessService} from "../../services/agricultural-process.se
     FormsModule,
     NgIf,
     MatSelectModule,
+    ResourceFormComponent,
   ],
   styleUrls: ['./agricultural-activity-form.component.css']
 })
@@ -28,6 +30,8 @@ export class AgriculturalActivityFormComponent implements OnInit {
   activityType!: string;
   item: any;
   activityService: AgriculturalProcessService = inject(AgriculturalProcessService);
+  activityId!: number;
+  showResourceForm: boolean = false;
 
 
   success = false;
@@ -105,6 +109,8 @@ export class AgriculturalActivityFormComponent implements OnInit {
           console.log('Irrigation activity added', response);
           this.success = true;
           this.resetForm();
+          this.activityId = response.id;
+          this.showResourceForm = true;
         })
     } catch (error) {
       console.error('Error adding irrigation activity', error);
@@ -186,5 +192,9 @@ export class AgriculturalActivityFormComponent implements OnInit {
 
   private resetForm() {
     this.activityForm.reset();
+  }
+
+  handleClose() {
+    this.showResourceForm = false;
   }
 }

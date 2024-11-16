@@ -1,14 +1,14 @@
 import {Injectable} from '@angular/core';
 import {BaseService} from "../../shared/services/base.service";
-import {Finance} from "../models/finance.entity";
+import {ProductStored} from "../models/product-stored.entity";
 
 @Injectable({
   providedIn: 'root'
 })
-export class FinanceService extends BaseService<Finance> {
+export class ProductStoredService extends BaseService<ProductStored>{
 
   constructor() {
     super();
-    this.resourceEndpoint = '/finances';
+    this.resourceEndpoint = "/payment-products";
   }
 }

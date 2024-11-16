@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BaseService} from "../../shared/services/base.service";
 import {AgriculturalProcess} from "../models/agricultural-process.entity";
 import {AgriculturalActivity} from "../models/agricultural-activity.entity";
@@ -74,5 +74,10 @@ export class AgriculturalProcessService extends BaseService<AgriculturalProcess>
     );
   }
 
+  addResourceToActivity(resource: any) {
+    this.setToken();
+    return this.http.post<AgriculturalActivity>(`${this.resourcePath()}/activity/add-resource`, resource, this.httpOptionsAuthorized)
+      .pipe(retry(2), catchError(this.handleError));
+  }
 
 }

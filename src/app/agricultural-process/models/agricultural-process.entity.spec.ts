@@ -1,4 +1,4 @@
-import { AgriculturalProcessEntity } from './agricultural-process.entity';
+import {AgriculturalProcessEntity} from './agricultural-process.entity';
 
 describe('AgriculturalProcessEntity', () => {
   it('should create an instance', () => {

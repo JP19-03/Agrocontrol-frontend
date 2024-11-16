@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CropTreatmentSchedulerComponent } from './crop-treatment-scheduler.component';
+import {CropTreatmentSchedulerComponent} from './crop-treatment-scheduler.component';
 
 describe('CropTreatmentSchedulerComponent', () => {
   let component: CropTreatmentSchedulerComponent;
