@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { IrrigationSchedulerComponent } from './irrigation-scheduler.component';
+import {IrrigationSchedulerComponent} from './irrigation-scheduler.component';
 
 describe('IrrigationSchedulerComponent', () => {
   let component: IrrigationSchedulerComponent;

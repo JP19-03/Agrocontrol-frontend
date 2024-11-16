@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { HomeAgriculturalProcessComponent } from './home-agricultural-process.component';
+import {HomeAgriculturalProcessComponent} from './home-agricultural-process.component';
 
 describe('HomeAgriculturalProcessComponent', () => {
   let component: HomeAgriculturalProcessComponent;

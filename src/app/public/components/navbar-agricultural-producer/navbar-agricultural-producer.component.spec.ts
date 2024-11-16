@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { NavbarAgriculturalProducerComponent } from './navbar-agricultural-producer.component';
+import {NavbarAgriculturalProducerComponent} from './navbar-agricultural-producer.component';
 
 describe('NavbarAgriculturalProducerComponent', () => {
   let component: NavbarAgriculturalProducerComponent;

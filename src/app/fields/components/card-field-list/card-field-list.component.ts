@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Fields } from "../../models/fields.entity";
-import { FieldsService } from "../../services/fields.service";
-import { FieldCardComponent } from "../field-card/field-card.component";
-import { CommonModule } from '@angular/common';
-import { MatButton } from "@angular/material/button";
+import {Component, Input, OnInit} from '@angular/core';
+import {Fields} from "../../models/fields.entity";
+import {FieldsService} from "../../services/fields.service";
+import {FieldCardComponent} from "../field-card/field-card.component";
+import {CommonModule} from '@angular/common';
+import {MatButton} from "@angular/material/button";
 import {FieldFormComponent} from "../field-form/field-form.component";
 import {FieldFormEditComponent} from "../field-form-edit/field-form-edit.component";
 

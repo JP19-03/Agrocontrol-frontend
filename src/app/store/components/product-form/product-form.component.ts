@@ -1,13 +1,13 @@
-import { Component, EventEmitter, inject, Input, Output, ViewChild } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { MatInput } from '@angular/material/input';
-import { MatButton } from '@angular/material/button';
-import { Product } from '../../models/product.entity';
-import { ProductService } from '../../services/product.service';
-import { NgClass, NgIf } from '@angular/common';
-import { MatIcon } from '@angular/material/icon';
-import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import {Component, EventEmitter, inject, Input, Output, ViewChild} from '@angular/core';
+import {FormsModule, NgForm} from '@angular/forms';
+import {MatFormField, MatLabel} from '@angular/material/form-field';
+import {MatInput} from '@angular/material/input';
+import {MatButton} from '@angular/material/button';
+import {Product} from '../../models/product.entity';
+import {ProductService} from '../../services/product.service';
+import {NgClass, NgIf} from '@angular/common';
+import {MatIcon} from '@angular/material/icon';
+import {MatProgressSpinner} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-product-form',

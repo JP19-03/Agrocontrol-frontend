@@ -4,7 +4,6 @@ import {WorkerFieldFormComponent} from "../../components/worker-field-form/worke
 import {WorkersFieldTableComponent} from "../../components/workers-field-table/workers-field-table.component";
 import {Worker} from "../../models/worker.entity";
 import {WorkerService} from "../../services/worker.service";
-import {MatTableDataSource} from "@angular/material/table";
 import {Router} from "@angular/router";
 
 @Component({

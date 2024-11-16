@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { IrrigationHistoryComponent } from './irrigation-history.component';
+import {IrrigationHistoryComponent} from './irrigation-history.component';
 
 describe('IrrigationHistoryComponent', () => {
   let component: IrrigationHistoryComponent;

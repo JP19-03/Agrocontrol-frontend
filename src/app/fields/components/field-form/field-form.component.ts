@@ -1,14 +1,10 @@
-
 import {Component, EventEmitter, inject, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {FormsModule, NgForm} from "@angular/forms";
 import {Fields} from "../../models/fields.entity";
 import {FieldsService} from "../../services/fields.service";
 import {NgIf} from "@angular/common";
-import {MatFormField} from "@angular/material/form-field";
-import {MatInput} from "@angular/material/input";
-
-import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatInputModule } from "@angular/material/input";
+import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
+import {MatInput, MatInputModule} from "@angular/material/input";
 
 @Component({
   selector: 'app-field-form',

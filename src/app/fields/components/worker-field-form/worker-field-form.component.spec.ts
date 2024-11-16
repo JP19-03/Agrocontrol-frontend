@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WorkerFieldFormComponent } from './worker-field-form.component';
+import {WorkerFieldFormComponent} from './worker-field-form.component';
 
 describe('WorkerFieldFormComponent', () => {
   let component: WorkerFieldFormComponent;

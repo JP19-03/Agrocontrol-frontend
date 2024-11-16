@@ -1,9 +1,9 @@
 import {Component, EventEmitter, inject, Input, Output, ViewChild} from '@angular/core';
 import {FormsModule, NgForm} from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInput } from '@angular/material/input';
-import { MatButton } from '@angular/material/button';
-import { NgIf } from '@angular/common';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInput} from '@angular/material/input';
+import {MatButton} from '@angular/material/button';
+import {NgIf} from '@angular/common';
 import {MatDialogModule} from '@angular/material/dialog';
 import {Worker} from "../../models/worker.entity";
 import {WorkerService} from "../../services/worker.service";

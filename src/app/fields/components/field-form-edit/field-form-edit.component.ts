@@ -1,4 +1,3 @@
-
 import {Component, EventEmitter, inject, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Fields} from "../../models/fields.entity";
 import {FormsModule, NgForm, ReactiveFormsModule} from "@angular/forms";

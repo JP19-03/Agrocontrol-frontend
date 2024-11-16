@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DistributorDialogComponent } from './distributor-dialog.component';
+import {DistributorDialogComponent} from './distributor-dialog.component';
 
 describe('DistributorDialogComponent', () => {
   let component: DistributorDialogComponent;

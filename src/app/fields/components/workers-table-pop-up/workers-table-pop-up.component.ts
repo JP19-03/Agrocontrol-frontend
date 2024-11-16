@@ -1,7 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {NgIf} from "@angular/common";
 import {WorkersFieldTableComponent} from "../workers-field-table/workers-field-table.component";
-import {Worker} from "../../models/worker.entity";
 import {
   WorkersProcessComponent
 } from "../../../agricultural-process/components/workers-process/workers-process.component";

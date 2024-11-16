@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
-import { AuthService } from "../../services/auth.service";
-import { User } from "../../models/user.entity";
+import {Component, inject} from '@angular/core';
+import {AuthService} from "../../services/auth.service";
+import {User} from "../../models/user.entity";
 import {LoginFormComponent} from "../../components/login-form/login-form.component";
 import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";

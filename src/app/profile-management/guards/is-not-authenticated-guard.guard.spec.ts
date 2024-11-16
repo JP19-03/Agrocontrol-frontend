@@ -1,7 +1,7 @@
-import { TestBed } from '@angular/core/testing';
-import { CanActivateFn } from '@angular/router';
+import {TestBed} from '@angular/core/testing';
+import {CanActivateFn} from '@angular/router';
 
-import { isNotAuthenticatedGuard } from './is-not-authenticated-guard.guard';
+import {isNotAuthenticatedGuard} from './is-not-authenticated-guard.guard';
 
 describe('isNotAuthenticatedGuardGuard', () => {
   const executeGuard: CanActivateFn = (...guardParameters) =>

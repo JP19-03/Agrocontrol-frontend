@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FieldCardComponent } from './field-card.component';
+import {FieldCardComponent} from './field-card.component';
 
 describe('FieldCardComponent', () => {
   let component: FieldCardComponent;

@@ -1,9 +1,14 @@
-import { Component, ElementRef, inject, OnInit, AfterViewInit, HostListener } from '@angular/core';
-import { MatSidenavModule } from "@angular/material/sidenav";
-import { SidenavAgriculturalProducerComponent } from "../../components/sidenav-agricultural-producer/sidenav-agricultural-producer.component";
-import { NavbarAgriculturalProducerComponent } from "../../components/navbar-agricultural-producer/navbar-agricultural-producer.component";
+import {Component, HostListener} from '@angular/core';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {
+  SidenavAgriculturalProducerComponent
+} from "../../components/sidenav-agricultural-producer/sidenav-agricultural-producer.component";
+import {
+  NavbarAgriculturalProducerComponent
+} from "../../components/navbar-agricultural-producer/navbar-agricultural-producer.component";
 import {HomeViewComponent} from "../../../agricultural-process/pages/home-view/home-view.component";
 import {Event, RouterOutlet} from "@angular/router";
+
 @Component({
   selector: 'app-home-agricultural-process',
   standalone: true,

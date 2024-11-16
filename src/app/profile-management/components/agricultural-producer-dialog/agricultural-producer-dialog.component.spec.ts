@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AgriculturalProducerDialogComponent } from './agricultural-producer-dialog.component';
+import {AgriculturalProducerDialogComponent} from './agricultural-producer-dialog.component';
 
 describe('AgriculturalProducerDialogComponent', () => {
   let component: AgriculturalProducerDialogComponent;

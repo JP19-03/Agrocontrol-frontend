@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { HarvestHistoryComponent } from './harvest-history.component';
+import {HarvestHistoryComponent} from './harvest-history.component';
 
 describe('HarvestHistoryComponent', () => {
   let component: HarvestHistoryComponent;

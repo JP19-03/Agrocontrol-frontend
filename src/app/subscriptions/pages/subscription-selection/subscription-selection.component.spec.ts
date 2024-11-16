@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SubscriptionSelectionComponent } from './subscription-selection.component';
+import {SubscriptionSelectionComponent} from './subscription-selection.component';
 
 describe('SubscriptionSelectionComponent', () => {
   let component: SubscriptionSelectionComponent;

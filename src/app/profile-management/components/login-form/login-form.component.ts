@@ -1,13 +1,14 @@
-import {Component, EventEmitter, inject, Output, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators} from "@angular/forms";
-import {MatFormField, MatFormFieldModule, MatLabel} from "@angular/material/form-field";
-import {MatInput, MatInputModule} from "@angular/material/input";
+import {Component, EventEmitter, Output} from '@angular/core';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 import {User} from "../../models/user.entity";
-import {Router, RouterLink} from '@angular/router';
+import {RouterLink} from '@angular/router';
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {CommonModule, NgOptimizedImage} from "@angular/common";
 import {MatCheckbox} from "@angular/material/checkbox";
+
 @Component({
   selector: 'app-login-form',
   standalone: true,

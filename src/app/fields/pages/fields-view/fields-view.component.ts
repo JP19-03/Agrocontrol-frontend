@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {CardFieldListComponent} from "../../components/card-field-list/card-field-list.component";
 import {
   NavbarAgriculturalProducerComponent

@@ -1,22 +1,23 @@
-import { Component, EventEmitter, Output, signal } from '@angular/core';
+import {Component, EventEmitter, Output, signal} from '@angular/core';
 import {
+  AbstractControl,
+  AbstractControlOptions,
   FormBuilder,
   FormControl,
   FormGroup,
-  Validators,
-  NgForm,
   FormGroupDirective,
-  AbstractControl, AbstractControlOptions
+  NgForm,
+  ReactiveFormsModule,
+  Validators
 } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
-import { User } from '../../models/user.entity';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
-import { ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from "@angular/common";
+import {ErrorStateMatcher} from '@angular/material/core';
+import {User} from '../../models/user.entity';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatRadioButton, MatRadioGroup} from '@angular/material/radio';
+import {CommonModule} from "@angular/common";
 import {RouterLink} from "@angular/router";
 
 /** ErrorStateMatcher para manejar validaciones en campos sucios, tocados o enviados */

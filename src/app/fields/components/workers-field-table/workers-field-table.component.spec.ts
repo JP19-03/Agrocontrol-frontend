@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WorkersFieldTableComponent } from './workers-field-table.component';
+import {WorkersFieldTableComponent} from './workers-field-table.component';
 
 describe('WorkersFieldTableComponent', () => {
   let component: WorkersFieldTableComponent;

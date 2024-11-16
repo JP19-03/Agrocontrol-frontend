@@ -1,4 +1,4 @@
-import { SubscriptionEntity } from './subscription.entity';
+import {SubscriptionEntity} from './subscription.entity';
 
 describe('SubscriptionEntity', () => {
   it('should create an instance', () => {

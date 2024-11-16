@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FieldFormComponent } from './field-form.component';
+import {FieldFormComponent} from './field-form.component';
 
 describe('FieldFormComponent', () => {
   let component: FieldFormComponent;

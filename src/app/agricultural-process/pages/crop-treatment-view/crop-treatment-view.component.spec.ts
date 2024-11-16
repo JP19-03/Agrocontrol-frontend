@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CropTreatmentViewComponent } from './crop-treatment-view.component';
+import {CropTreatmentViewComponent} from './crop-treatment-view.component';
 
 describe('CropTreatmentViewComponent', () => {
   let component: CropTreatmentViewComponent;

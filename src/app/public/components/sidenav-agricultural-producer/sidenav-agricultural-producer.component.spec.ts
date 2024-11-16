@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SidenavAgriculturalProducerComponent } from './sidenav-agricultural-producer.component';
+import {SidenavAgriculturalProducerComponent} from './sidenav-agricultural-producer.component';
 
 describe('SidenavAgriculturalProducerComponent', () => {
   let component: SidenavAgriculturalProducerComponent;

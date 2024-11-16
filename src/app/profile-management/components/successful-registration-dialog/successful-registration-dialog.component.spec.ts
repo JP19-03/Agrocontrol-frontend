@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SuccessfulRegistrationDialogComponent } from './successful-registration-dialog.component';
+import {SuccessfulRegistrationDialogComponent} from './successful-registration-dialog.component';
 
 describe('SuccessfulRegistrationDialogComponent', () => {
   let component: SuccessfulRegistrationDialogComponent;

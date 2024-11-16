@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
-import { AuthService } from "../../services/auth.service";
-import { User } from "../../models/user.entity";
+import {Component, inject} from '@angular/core';
+import {AuthService} from "../../services/auth.service";
+import {User} from "../../models/user.entity";
 import {RegisterFormComponent} from "../../components/register-form/register-form.component";
 import {MatDialog} from "@angular/material/dialog";
 import {

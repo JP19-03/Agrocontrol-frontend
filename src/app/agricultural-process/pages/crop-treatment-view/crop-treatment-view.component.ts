@@ -1,7 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
-import { RouterLink } from "@angular/router";
+import {RouterLink} from "@angular/router";
 import {
-    AgriculturalActivityTableComponent
+  AgriculturalActivityTableComponent
 } from "../../components/agricultural-activity-table/agricultural-activity-table.component";
 import {MatTableDataSource} from "@angular/material/table";
 import {AgriculturalProcessService} from "../../services/agricultural-process.service";

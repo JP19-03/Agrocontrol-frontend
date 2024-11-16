@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FieldsViewComponent } from './fields-view.component';
+import {FieldsViewComponent} from './fields-view.component';
 
 describe('FieldsViewComponent', () => {
   let component: FieldsViewComponent;

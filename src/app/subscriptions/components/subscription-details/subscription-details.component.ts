@@ -1,6 +1,6 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {NgForOf, NgIf} from '@angular/common';
-import { MatIcon } from '@angular/material/icon';
+import {MatIcon} from '@angular/material/icon';
 
 @Component({
   selector: 'app-subscription-details',

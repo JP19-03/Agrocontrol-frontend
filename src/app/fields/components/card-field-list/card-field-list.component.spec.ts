@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CardFieldListComponent } from './card-field-list.component';
+import {CardFieldListComponent} from './card-field-list.component';
 
 describe('CardFieldListComponent', () => {
   let component: CardFieldListComponent;

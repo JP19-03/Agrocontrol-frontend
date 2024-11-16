@@ -1,4 +1,4 @@
-import { DistributorEntity } from './distributor.entity';
+import {DistributorEntity} from './distributor.entity';
 
 describe('DistributorEntity', () => {
   it('should create an instance', () => {

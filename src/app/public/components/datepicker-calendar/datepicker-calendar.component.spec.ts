@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DatepickerCalendarComponent } from './datepicker-calendar.component';
+import {DatepickerCalendarComponent} from './datepicker-calendar.component';
 
 describe('DatepickerCalendarComponent', () => {
   let component: DatepickerCalendarComponent;
