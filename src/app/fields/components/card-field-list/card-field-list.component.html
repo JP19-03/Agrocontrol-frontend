@@ -5,6 +5,10 @@
   </div>
 </div>
 
+<div *ngIf="message" class="flex justify-center items-center">
+  <span class="text-red-500 text-lg font-black">{{ message }}</span>
+</div>
+
 <app-field-form
   *ngIf="isModalOpen"
   [currentUserId]="currentUserId"

@@ -27,7 +27,7 @@ export class CardFieldListComponent implements OnInit {
   isModalOpen: boolean = false;
   isEditModalOpen: boolean = false; // Nueva variable para manejar el modal de edición
   selectedFieldId!: number; // ID del campo seleccionado para editar
-
+  message: string = '';
   constructor(private fieldService: FieldsService) {}
 
   ngOnInit(): void {
@@ -37,6 +37,9 @@ export class CardFieldListComponent implements OnInit {
   loadFields(): void {
     this.fieldService.getFieldsByUserId(this.currentUserId).subscribe((fields) => {
       this.fields = fields;
+      if (fields.length === 0) {
+        this.message = 'No fields found';
+      }
     });
   }
 
