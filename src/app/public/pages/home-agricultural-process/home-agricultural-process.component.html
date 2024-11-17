@@ -1,7 +1,7 @@
 <mat-drawer-container class="h-screen flex" autosize>
   <!-- Sidenav -->
   <mat-drawer #drawer class="!w-11/12 md:!w-1/5 !text-white !bg-slate-800" mode="side" [opened]="isSidenavOpened">
-    <app-sidenav-agricultural-producer></app-sidenav-agricultural-producer>
+    <app-sidenav-agricultural-producer [role]="'producer'" />
   </mat-drawer>
 
   <!-- Contenido principal -->
