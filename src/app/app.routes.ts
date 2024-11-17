@@ -23,7 +23,7 @@ import {
   AgriculturalActivitySchedulerComponent
 } from "./agricultural-process/pages/agricultural-activity-scheduler/agricultural-activity-scheduler.component";
 import {HarvestHistoryComponent} from "./agricultural-process/pages/harvest-history/harvest-history.component";
-
+import {FinanceViewComponent} from "./finances/pages/finance-view/finance-view.component";
 
 export const routes: Routes = [
   { path: 'register', component: RegisterPageComponent, canActivate: [ isNotAuthenticatedGuard ] },
@@ -77,6 +77,10 @@ export const routes: Routes = [
         path: 'products-inventory',
         component: ProductsInventoryComponent,
       },
+      {
+        path: 'finance-view',
+        component: FinanceViewComponent,
+      }
     ]
   }
 ];
