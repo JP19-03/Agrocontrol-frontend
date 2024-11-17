@@ -24,12 +24,16 @@ export class ProductsInventoryComponent implements OnInit{
   showForm: boolean = false;
   products: Array<Product> = [];
   productService: ProductService = inject(ProductService);
-  userId: number = 1;
+  userId!: number;
   isEditMode: boolean = false;
   productToEdit?: Product;
 
   ngOnInit(): void {
     this.getProducts();
+    const id = localStorage.getItem('userId');
+    if (id != null) {
+      this.userId = parseInt(id);
+    }
   }
 
   getProducts() {
