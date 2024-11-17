@@ -15,6 +15,7 @@ import {Product} from "../../models/product.entity";
 })
 export class ProductsListComponent {
   @Input() products: Array<Product> = [];
+  @Input() showField!: number;
   @Output() edit = new EventEmitter<Product>(); // Emit event to edit a product
 
   // Method to emit the product to edit

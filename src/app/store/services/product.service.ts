@@ -18,4 +18,10 @@ export class ProductService extends BaseService<Product>{
     return this.http.get<Array<Product>>(`${this.resourcePath()}/user/${userId}`, this.httpOptionsAuthorized)
       .pipe(retry(2), catchError(this.handleError));
   }
+
+  getAllButNotByUserId(userId: number) {
+    this.setToken();
+    return this.http.get<Array<Product>>(`${this.resourcePath()}/${userId}`, this.httpOptionsAuthorized)
+      .pipe(retry(2), catchError(this.handleError));
+  }
 }
