@@ -1,0 +1,62 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  background-color: #f8f9fa;
+  color: #454545;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 100%;
+  max-width: 400px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card__title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #343a40;
+  text-align: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #343a40;
+  height: 30px; /* Ajusta el alto del título y el cursor */
+  line-height: 30px; /* Alinea verticalmente */
+  width: 0;
+  animation: typing 3s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+.card__content {
+  padding: 20px;
+}
+
+.card__content p {
+  margin: 8px 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.card__content strong {
+  color: #343a40;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #343a40; }
+}
