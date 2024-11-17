@@ -33,7 +33,7 @@ export class ProductsInventoryComponent implements OnInit{
   }
 
   getProducts() {
-    this.productService.getProductsByUserId(this.userId).subscribe((products: Array<Product>) => {
+    this.productService.getAllByUserId(this.userId).subscribe((products: Array<Product>) => {
       this.products = products;
       console.log(this.products);
     });

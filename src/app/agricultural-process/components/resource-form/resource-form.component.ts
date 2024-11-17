@@ -1,12 +1,13 @@
-import {Component, EventEmitter, inject, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
-import {NgForOf, NgIf} from "@angular/common";
-import {FormsModule} from "@angular/forms";
-import {MatRadioModule} from '@angular/material/radio';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
-import {MatSelectModule} from "@angular/material/select";
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { NgForOf, NgIf } from "@angular/common";
+import { FormsModule, NgForm } from "@angular/forms";
+import { MatRadioModule } from '@angular/material/radio';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatSelectModule } from "@angular/material/select";
+import { WorkerService } from "../../../fields/services/worker.service";
+import { ProductService } from "../../../store/services/product.service";
 import {AgriculturalProcessService} from "../../services/agricultural-process.service";
-import {WorkerService} from "../../../fields/services/worker.service";
 
 @Component({
   selector: 'app-resource-form',
@@ -21,73 +22,130 @@ import {WorkerService} from "../../../fields/services/worker.service";
     NgForOf,
   ],
   templateUrl: './resource-form.component.html',
-  styleUrls: ['./resource-form.component.css'], // Fix typo: styleUrls instead of styleUrl
+  styleUrls: ['./resource-form.component.css'],
 })
 export class ResourceFormComponent implements OnChanges {
   @Input() showForm: boolean = false; // Control visibility of the form
   @Input() activityId!: number; // ID of the activity, required
+  @Input() agriculturalProcessId!: number; // ID of the activity, required
   @Output() close: EventEmitter<void> = new EventEmitter<void>(); // Event emitter to close the form
 
-  workers: WorkerService = inject(WorkerService); // Inject WorkerService
+  @ViewChild('resourceForm', { static: false }) resourceForm!: NgForm;
 
-
-
+  userId!: number; // ID of the user
   selectedOption: string = 'workers'; // Default selected option
-  selectedItem: string | null = null; // Currently selected item
-  options: string[] = []; // Dynamic options for the dropdown
+  items: any[] = []; // Dropdown options
+  currentResource = { // Current resource being added
+    resourceId: null,
+    description: '',
+    cost: 0,
+    quantity: 0,
+    activityId: this.activityId,
+    agriculturalProcessId: this.agriculturalProcessId,
+  };
+  resources: any[] = []; // List of added resources
 
-  // Static categories for options
-  @Input() fruits: string[] = ['Apple', 'Banana', 'Orange'];
-  @Input() vegetables: string[] = ['Carrot', 'Broccoli', 'Spinach'];
+  constructor(private workerService: WorkerService, private productService: ProductService,
+              private agriculturalProcessService: AgriculturalProcessService) {
+    const id = localStorage.getItem('userId');
+    if (id) {
+      this.userId = parseInt(id);
+    }
+  }
 
-  // Lifecycle hook to handle changes to inputs
   ngOnChanges(changes: SimpleChanges): void {
-    if ('activityId' in changes && !changes['activityId'].currentValue) {
-      console.error('Invalid or missing activityId. Please provide a valid activityId.');
+    if ('activityId' in changes && changes['activityId'].currentValue) {
+      this.currentResource.activityId = this.activityId;
     }
     if ('showForm' in changes && changes['showForm'].currentValue) {
-      this.updateOptions(); // Reset options if the form is shown
+      this.updateOptions();
+    }
+    if ('agriculturalProcessId' in changes && changes['agriculturalProcessId'].currentValue) {
+      this.currentResource.agriculturalProcessId = this.agriculturalProcessId;
     }
   }
 
-  // Updates the dropdown options based on the selected category
   updateOptions(): void {
-    this.options = this.selectedOption === 'fruits' ? this.fruits : this.vegetables;
-    this.selectedItem = null; // Reset selected item when category changes
+    this.items = [];
+    if (this.selectedOption === 'workers') {
+      this.workerService.getAllByUserId(this.userId).subscribe({
+        next: (data) => {
+          this.items = data;
+        },
+        error: (err) => console.error('Error loading workers:', err),
+      });
+    } else {
+      this.productService.getAllByUserId(this.userId).subscribe({
+        next: (data) => {
+          this.items = data;
+        },
+        error: (err) => console.error('Error loading products:', err),
+      });
+    }
   }
 
-  // Handles category change via radio buttons
   onOptionChange(): void {
     this.updateOptions();
+    this.resetCurrentResource();
   }
 
-  // Handles form submission
-  onSubmit(): void {
-    if (!this.selectedItem) {
-      alert('Please select an item before submitting.');
-      return;
-    }
-
-    // Simulate form submission
-    console.log('Form submitted:', {
+  resetCurrentResource(): void {
+    this.currentResource = {
+      resourceId: null,
+      description: '',
+      cost: 0,
+      quantity: 0,
       activityId: this.activityId,
-      selectedOption: this.selectedOption,
-      selectedItem: this.selectedItem,
-    });
-
-    // Close form after submission
-    this.closeForm();
+      agriculturalProcessId: this.agriculturalProcessId,
+    };
   }
 
-  // Closes the form
-  closeForm(): void {
+  addResource(): void {
+    if (this.resourceForm.valid) {
+      const resourceCopy = { ...this.currentResource };
+      this.resources.push(resourceCopy);
+      this.resetCurrentResource();
+    } else {
+      console.error('Form is invalid.');
+    }
+  }
+
+  removeResource(index: number): void {
+    this.resources.splice(index, 1);
+  }
+
+  onSubmit(): void {
+    if (this.resources.length !== 0) {
+      if (this.selectedOption === 'workers') {
+        this.resources.forEach((resource) => {
+         this.agriculturalProcessService.addResourceToActivity(resource).subscribe(
+            {
+              next: () => {
+                console.log('Worker with data:', resource, 'added to activity.');
+                this.closePopup();
+              },
+              error: (err) => console.error('Error adding workers:', err),
+            }
+          )
+        })
+      } else {
+        this.resources.forEach((resource) => {
+          this.agriculturalProcessService.addResourceToActivity(resource).subscribe(
+            {
+              next: () => {
+                console.log('Product with data:', resource, 'added to activity.');
+                this.closePopup();
+              },
+              error: (err) => console.error('Error adding products:', err),
+            }
+          )
+        });
+      }
+    }
+  }
+
+  closePopup(): void {
     this.showForm = false;
-    this.selectedItem = null; // Reset state when form closes
-    this.selectedOption = 'fruits'; // Reset to default
-    this.updateOptions(); // Ensure options are reset
-  }
-
-  closePopup() {
-    this.close.emit(); // Emit close event to parent component
+    this.close.emit();
   }
 }

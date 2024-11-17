@@ -32,7 +32,7 @@ export class WorkerManagementComponent implements OnInit{
 
   getWorkers() {
     this.userId = parseInt(localStorage.getItem('userId') || '');
-    this.workerService.getAllWorkersByProducerId(this.userId).subscribe((response: Array<Worker>) => this.dataSource = response);
+    this.workerService.getAllByUserId(this.userId).subscribe((response: Array<Worker>) => this.dataSource = response);
   }
 
   handleSuccess() {

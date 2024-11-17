@@ -31,6 +31,7 @@ export class AgriculturalActivityFormComponent implements OnInit {
   item: any;
   activityService: AgriculturalProcessService = inject(AgriculturalProcessService);
   activityId!: number;
+  newAgriProcessId!: number;
   showResourceForm: boolean = false;
 
 
@@ -110,6 +111,7 @@ export class AgriculturalActivityFormComponent implements OnInit {
           this.success = true;
           this.resetForm();
           this.activityId = response.id;
+          this.newAgriProcessId = response.agriculturalProcessId;
           this.showResourceForm = true;
         })
     } catch (error) {
@@ -126,6 +128,9 @@ export class AgriculturalActivityFormComponent implements OnInit {
           console.log('Crop treatment activity added', response);
           this.success = true;
           this.resetForm();
+          this.activityId = response.id;
+          this.newAgriProcessId = response.agriculturalProcessId;
+          this.showResourceForm = true;
         })
     } catch (error) {
       console.error('Error adding crop treatment activity', error);
@@ -141,6 +146,9 @@ export class AgriculturalActivityFormComponent implements OnInit {
           console.log('Harvest activity added', response);
           this.success = true;
           this.resetForm();
+          this.activityId = response.id;
+          this.newAgriProcessId = response.agriculturalProcessId;
+          this.showResourceForm = true;
         })
     } catch (error) {
       console.error('Error adding harvest activity', error);

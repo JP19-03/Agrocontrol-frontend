@@ -11,7 +11,7 @@ export class WorkerService extends BaseService<Worker>{
     this.resourceEndpoint = '/workers';
   }
 
-  getAllWorkersByProducerId(producerId: number) {
+  getAllByUserId(producerId: number) {
     this.setToken();
     return this.http.get<Array<Worker>>(`${this.resourcePath()}/${producerId}`, this.httpOptionsAuthorized)
       .pipe(retry(2), catchError(this.handleError));

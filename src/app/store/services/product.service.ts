@@ -13,7 +13,7 @@ export class ProductService extends BaseService<Product>{
     this.resourceEndpoint = '/products';
   }
 
-  getProductsByUserId(userId: number) {
+  getAllByUserId(userId: number) {
     this.setToken();
     return this.http.get<Array<Product>>(`${this.resourcePath()}/user/${userId}`, this.httpOptionsAuthorized)
       .pipe(retry(2), catchError(this.handleError));

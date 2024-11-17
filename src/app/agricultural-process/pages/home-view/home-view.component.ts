@@ -44,7 +44,7 @@ export class HomeViewComponent implements OnInit{
   }
 
   getWorkersByUserId() {
-    this.workerService.getAllWorkersByProducerId(this.userId).subscribe((workers) => {
+    this.workerService.getAllByUserId(this.userId).subscribe((workers) => {
       this.workers = workers.slice(0, 2) as Worker[];
       console.log(this.workers);
     });
