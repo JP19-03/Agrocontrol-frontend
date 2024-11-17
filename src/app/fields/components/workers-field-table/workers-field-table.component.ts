@@ -16,6 +16,7 @@ import {RouterLink} from "@angular/router";
 export class WorkersFieldTableComponent {
   displayedColumns: string[] = ['id', 'fullName', 'phone', 'documentNumber'];
   @Input() workers!: Array<Worker>;
+  @Input() userId!: number;
   modalOpen: boolean = false;
   openModal() {
     this.modalOpen = true;
