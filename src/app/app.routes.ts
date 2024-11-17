@@ -26,7 +26,8 @@ import {HarvestHistoryComponent} from "./agricultural-process/pages/harvest-hist
 import {FinanceViewComponent} from "./finances/pages/finance-view/finance-view.component";
 import {ProductsProducerComponent} from "./store/pages/products-producer/products-producer.component";
 import {ProductsStoreComponent} from "./store/pages/products-store/products-store.component";
-
+import {HomeDistributorComponent} from "./public/pages/home-distributor/home-distributor.component";
+import {SalesHistoryComponent} from "./store/pages/sales-history/sales-history.component";
 
 export const routes: Routes = [
   { path: 'register', component: RegisterPageComponent, canActivate: [ isNotAuthenticatedGuard ] },
@@ -43,6 +44,22 @@ export const routes: Routes = [
     component: FieldsViewComponent,
     canActivate: [isAuthenticatedGuard],
     data: { roles: ['ROLE_AGRICULTURAL_PRODUCER'] },
+  },
+  {
+    path: 'home-distributor/:id',
+    component: HomeDistributorComponent,
+    canActivate: [isAuthenticatedGuard],
+    data: { roles: ['ROLE_DISTRIBUTOR'] },
+    children: [
+      {
+        path: 'your-products',
+        component: ProductsInventoryComponent,
+      },
+      {
+        path: 'sale-history',
+        component: SalesHistoryComponent,
+      }
+    ]
   },
 
   // Rutas protegidas para ROLE_AGRICULTURAL_PRODUCER

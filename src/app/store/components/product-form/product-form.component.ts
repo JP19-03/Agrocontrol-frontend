@@ -29,7 +29,7 @@ import {MatProgressSpinner} from '@angular/material/progress-spinner';
 export class ProductFormComponent {
   //#region Attributes
   @Input() showForm!: boolean;
-  @Input() userId: number = 1;
+  @Input() userId!: number;
   @Input() isEditMode: boolean = false; // Nueva propiedad
   @Input() productToEdit?: Product; // Producto a editar
   @ViewChild('productForm', { static: false }) protected productForm!: NgForm;
@@ -69,9 +69,17 @@ export class ProductFormComponent {
 
       console.log('Product: ', this.product);
 
+      const productToUpdate = {
+        "name": this.product.name,
+        "quantityPerUnit": this.product.quantityPerUnit,
+        "unitPrice": this.product.unitPrice,
+        "quantity": this.product.quantity,
+        "photoUrl": this.product.photoUrl
+      }
+
       // Lógica para crear o actualizar
       const request = this.isEditMode
-        ? this.productService.update(this.product.id, this.product) // Llama al método de actualización
+        ? this.productService.update(this.product.id, productToUpdate) // Llama al método de actualización
         : this.productService.create(this.product); // Llama al método de creación
 
       // Simulate loading delay of 3 seconds

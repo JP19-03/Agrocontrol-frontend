@@ -29,10 +29,10 @@ export class ProductsInventoryComponent implements OnInit{
   productToEdit?: Product;
 
   ngOnInit(): void {
-    this.getProducts();
     const id = localStorage.getItem('userId');
     if (id != null) {
       this.userId = parseInt(id);
+      this.getProducts();
     }
   }
 

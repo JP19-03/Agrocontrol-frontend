@@ -64,21 +64,25 @@ export class BaseService<T> {
   }
 
   public delete(id: any): Observable<any> {
+    this.setToken();
     return this.http.delete(`${this.resourcePath()}/${id}`, this.httOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   public update(id: any, item: any): Observable<T> {
+    this.setToken();
     return this.http.put<T>(`${this.resourcePath()}/${id}`, JSON.stringify(item), this.httOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   public getAll(): Observable<T[]> {
+    this.setToken();
     return this.http.get<T[]>(this.resourcePath(), this.httOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   public getById(id: any): Observable<T> {
+    this.setToken();
     return this.http.get<T>(`${this.resourcePath()}/${id}`, this.httOptions)
       .pipe(retry(2), catchError(this.handleError));
   }

@@ -23,12 +23,13 @@ export class LoginPageComponent {
       next: (response) => {
         const user = new User(response);
         const role = user.roles[0];
+        const userId = user.id;
 
         if (role === 'ROLE_AGRICULTURAL_PRODUCER') {
           console.log('Navegando a /field');
           this.router.navigate(['/field']);
         } else if (role === 'ROLE_DISTRIBUTOR') {
-          this.router.navigate(['/register']);
+          this.router.navigate(['/home-distributor/' + userId]);
         }
       },
       error: (err) => {
