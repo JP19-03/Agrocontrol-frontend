@@ -3,6 +3,7 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {CurrencyPipe, NgClass, NgIf, TitleCasePipe} from "@angular/common";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-sales-table',
@@ -14,7 +15,8 @@ import {CurrencyPipe, NgClass, NgIf, TitleCasePipe} from "@angular/common";
     NgIf,
     CurrencyPipe,
     TitleCasePipe,
-    NgClass
+    NgClass,
+    TranslateModule
   ],
   templateUrl: './sales-table.component.html',
   styleUrl: './sales-table.component.css'

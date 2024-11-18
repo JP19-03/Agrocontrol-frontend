@@ -3,23 +3,23 @@
     <h2 class="text-2xl font-semibold text-center">{{ isEditMode ? 'Edit Product' : 'Add Product' }}</h2>
     <form #productForm="ngForm" (submit)="onSubmit()" class="flex flex-col justify-between m-4">
       <mat-form-field id="productName">
-        <mat-label>Name</mat-label>
+        <mat-label>{{ 'resources.name' | translate }}</mat-label>
         <input [(ngModel)]="product.name" matInput name="name" placeholder="Name" required>
       </mat-form-field>
       <mat-form-field id="quantityPerUnit">
-        <mat-label>Quantity Per Unit</mat-label>
+        <mat-label>{{ 'products.quantityPerUnit' | translate }}</mat-label>
         <input [(ngModel)]="product.quantityPerUnit" matInput name="quantityPerUnit" placeholder="Quantity Per Unit" required>
       </mat-form-field>
       <mat-form-field id="unitPrice">
-        <mat-label>Unit Price</mat-label>
+        <mat-label>{{ 'products.price' | translate }}</mat-label>
         <input type="number" min="1" [(ngModel)]="product.unitPrice" matInput name="unitPrice" placeholder="Unit Price" required>
       </mat-form-field>
       <mat-form-field id="quantity">
-        <mat-label>Quantity</mat-label>
+        <mat-label>{{ 'resources.quantity' | translate }}</mat-label>
         <input type="number" min="1" [(ngModel)]="product.quantity" matInput name="quantity" placeholder="Quantity" required>
       </mat-form-field>
       <mat-form-field id="imageUrl">
-        <mat-label>Image URL</mat-label>
+        <mat-label>{{ 'products.imageURL' | translate }}</mat-label>
         <input [(ngModel)]="product.photoUrl" matInput name="imageUrl" placeholder="Image URL" required>
       </mat-form-field>
       <div class="flex flex-col gap-4 sm:flex-row justify-around mt-4">
@@ -34,7 +34,7 @@
           type="button"
           (click)="onCancel()"
           class="bg-red-600 text-white font-semibold uppercase px-5 py-3 rounded-lg shadow-md hover:bg-red-700 transition-all duration-300 ease-in-out">
-          Cancel
+          {{ 'shared.cancel' | translate }}
         </button>
       </div>
     </form>

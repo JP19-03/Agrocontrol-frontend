@@ -18,11 +18,12 @@ import {FormsModule, NgForm} from "@angular/forms";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {RouterLink} from "@angular/router";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [MatButtonModule, MatCardModule, NgIf, MatIcon, FormsModule, MatFormField, MatInput, MatLabel, RouterLink],
+  imports: [MatButtonModule, MatCardModule, NgIf, MatIcon, FormsModule, MatFormField, MatInput, MatLabel, RouterLink, TranslateModule],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush

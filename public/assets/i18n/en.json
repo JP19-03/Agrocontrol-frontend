@@ -44,14 +44,16 @@
     "addResource": "Add Resource",
     "removeResource": "Remove Resource",
     "submitAll": "Submit All",
-    "name": "Name"
+    "name": "Name",
+    "salesHistory": "Sales History"
   },
   "finances": {
     "totalIncome": "Total Income",
     "totalExpenses": "Total Expenses",
     "totalProfit": "Total Profit",
     "amount": "Amount",
-    "financeHistory": "Finance History"
+    "financeHistory": "Finance History",
+    "total": "Total"
   },
   "workers": {
     "manageWorkers": "Manage Workers",
@@ -63,5 +65,17 @@
     "location": "Location",
     "myFields": "My Fields",
     "fieldMessage": "Here you can view and manage your fields."
+  },
+  "products": {
+    "product": "Product",
+    "quantityPerUnit": "Quantity Per Unit",
+    "price": "Price",
+    "available": "Available",
+    "productQuantity": "Product Quantity",
+    "buy": "Buy",
+    "buyer": "Buyer",
+    "imageURL": "Image URL",
+    "addProduct": "Add Product",
+    "productStore": "Products Store"
   }
 }

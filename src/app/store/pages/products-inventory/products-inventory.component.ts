@@ -6,6 +6,7 @@ import {Product} from "../../models/product.entity";
 import {ProductService} from "../../services/product.service";
 import {ProductsListComponent} from "../../components/products-list/products-list.component";
 import {NgIf} from "@angular/common";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-products-inventory',
@@ -15,7 +16,8 @@ import {NgIf} from "@angular/common";
     MatIconButton,
     ProductFormComponent,
     ProductsListComponent,
-    NgIf
+    NgIf,
+    TranslateModule
   ],
   templateUrl: './products-inventory.component.html',
   styleUrl: './products-inventory.component.css'

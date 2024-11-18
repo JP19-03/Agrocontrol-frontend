@@ -2,13 +2,15 @@ import {Component, inject, OnInit} from '@angular/core';
 import {ProductsListComponent} from "../../components/products-list/products-list.component";
 import {Product} from "../../models/product.entity";
 import {ProductService} from "../../services/product.service";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-products-store',
   standalone: true,
-    imports: [
-        ProductsListComponent
-    ],
+  imports: [
+    ProductsListComponent,
+    TranslateModule
+  ],
   templateUrl: './products-store.component.html',
   styleUrl: './products-store.component.css'
 })

@@ -8,6 +8,7 @@ import {ProductService} from '../../services/product.service';
 import {NgClass, NgIf} from '@angular/common';
 import {MatIcon} from '@angular/material/icon';
 import {MatProgressSpinner} from '@angular/material/progress-spinner';
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-product-form',
@@ -21,7 +22,8 @@ import {MatProgressSpinner} from '@angular/material/progress-spinner';
     MatIcon,
     MatLabel,
     MatProgressSpinner,
-    NgClass
+    NgClass,
+    TranslateModule
   ],
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.css']

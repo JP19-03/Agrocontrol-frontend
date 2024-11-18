@@ -2,12 +2,14 @@ import {Component, inject, OnInit} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {ProductStoredService} from "../../services/product-stored.service";
 import {SalesTableComponent} from "../../components/sales-table/sales-table.component";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-sales-history',
   standalone: true,
   imports: [
-    SalesTableComponent
+    SalesTableComponent,
+    TranslateModule
   ],
   templateUrl: './sales-history.component.html',
   styleUrl: './sales-history.component.css'

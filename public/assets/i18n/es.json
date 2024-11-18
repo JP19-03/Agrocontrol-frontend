@@ -44,14 +44,16 @@
     "addResource": "Agregar Recurso",
     "removeResource": "Eliminar Recurso",
     "submitAll": "Enviar Todo",
-    "name": "Nombre"
+    "name": "Nombre",
+    "salesHistory": "Historial de Ventas"
   },
   "finances": {
     "totalIncome": "Ingreso Total",
     "totalExpenses": "Gasto Total",
     "totalProfit": "Ganancia Total",
     "amount": "Cantidad",
-    "financeHistory": "Historial Financiero"
+    "financeHistory": "Historial Financiero",
+    "total": "Total"
   },
   "workers": {
     "manageWorkers": "Administrar Trabajadores",
@@ -63,5 +65,17 @@
     "location": "Ubicación",
     "myFields": "Mis Campos",
     "fieldMessage": "Aquí puedes ver y administrar tus campos."
+  },
+  "products": {
+    "product": "Producto",
+    "quantityPerUnit": "Cantidad por Unidad",
+    "price": "Precio",
+    "available": "Disponible",
+    "productQuantity": "Cantidad de Producto",
+    "buy": "Comprar",
+    "buyer": "Comprador",
+    "imageURL": "URL de la Imagen",
+    "addProduct": "Agregar Producto",
+    "productStore": "Tienda de Productos"
   }
 }
