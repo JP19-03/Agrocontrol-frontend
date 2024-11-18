@@ -4,6 +4,7 @@
   </div>
   <nav class="!space-y-2 px-4 mt-4">
     <a *ngIf="role === 'producer'" (click)="goToHome()" class="block py-2 cursor-pointer">Home</a>
+    <a *ngIf="role === 'producer'" [routerLink]="['fields']" class="block py-2">Your Fields</a>
     <a *ngIf="role === 'producer'" [routerLink]="['Irrigation-history']" class="block py-2">Irrigation</a>
     <a *ngIf="role === 'producer'" [routerLink]="['CropTreatment-history']" class="block py-2">Crop Treatment</a>
     <a *ngIf="role === 'producer'" [routerLink]="['Harvest-history']" class="block py-2">Harvest</a>

@@ -62,7 +62,7 @@ export const routes: Routes = [
     ]
   },
   {
-    path: 'field',
+    path: 'fields',
     component: FieldsViewComponent,
     canActivate: [isAuthenticatedGuard],
     data: { roles: ['ROLE_AGRICULTURAL_PRODUCER'] },

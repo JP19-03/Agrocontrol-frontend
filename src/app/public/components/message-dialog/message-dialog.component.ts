@@ -15,6 +15,7 @@ export class MessageDialogComponent {
   @Input() title: string = '';
   @Input() message: string = '';
   @Input() type: 'success' | 'error' = 'success';
+  @Input() showDialog: boolean = false;
 
   // Injects the MatDialogRef into the component.
   constructor(private dialogRef: MatDialogRef<MessageDialogComponent>) {}

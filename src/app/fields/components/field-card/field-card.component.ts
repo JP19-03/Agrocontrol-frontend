@@ -81,6 +81,7 @@ export class FieldCardComponent {
     this.agriculturalProcessService.create(item).subscribe({
       next: (response: any) => {
         localStorage.setItem('fieldName', this.field.fieldName);
+        localStorage.setItem('fieldId', this.field.id.toString());
         localStorage.setItem('agriculturalProcessId', response.id);
         this.findSeedingActivity(response.id);
       },
@@ -97,6 +98,7 @@ export class FieldCardComponent {
         if (response && typeof response.id === 'number' && response.id > 0) {
           console.log('Proceso agrícola encontrado:', response.status);
           localStorage.setItem('fieldName', this.field.fieldName);
+          localStorage.setItem('fieldId', this.field.id.toString());
           localStorage.setItem('agriculturalProcessId', response.id.toString());
           this.findSeedingActivity(response.id);
         } else {
