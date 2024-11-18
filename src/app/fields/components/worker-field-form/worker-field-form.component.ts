@@ -7,16 +7,17 @@ import {NgIf} from '@angular/common';
 import {MatDialogModule} from '@angular/material/dialog';
 import {Worker} from "../../models/worker.entity";
 import {WorkerService} from "../../services/worker.service";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-worker-field-form',
   standalone: true,
-  imports: [ FormsModule,
+  imports: [FormsModule,
     MatFormFieldModule,
     MatInput,
     MatButton,
     NgIf,
-    MatDialogModule ],
+    MatDialogModule, TranslateModule],
   templateUrl: './worker-field-form.component.html',
   styleUrl: './worker-field-form.component.css'
 })

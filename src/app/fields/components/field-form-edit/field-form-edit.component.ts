@@ -5,6 +5,7 @@ import {FieldsService} from "../../services/fields.service";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {NgIf} from "@angular/common";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-field-form-edit',
@@ -15,7 +16,8 @@ import {NgIf} from "@angular/common";
     MatInput,
     MatLabel,
     NgIf,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule
   ],
   templateUrl: './field-form-edit.component.html',
   styleUrl: './field-form-edit.component.css'

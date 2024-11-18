@@ -5,6 +5,7 @@ import {WorkersFieldTableComponent} from "../../components/workers-field-table/w
 import {Worker} from "../../models/worker.entity";
 import {WorkerService} from "../../services/worker.service";
 import {Router} from "@angular/router";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-worker-management',
@@ -12,7 +13,8 @@ import {Router} from "@angular/router";
   imports: [
     MatButton,
     WorkerFieldFormComponent,
-    WorkersFieldTableComponent
+    WorkersFieldTableComponent,
+    TranslateModule
   ],
   templateUrl: './worker-management.component.html',
   styleUrl: './worker-management.component.css'

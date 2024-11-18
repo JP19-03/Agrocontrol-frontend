@@ -5,11 +5,12 @@ import {NgFor, NgIf} from "@angular/common";
 import {MatButton} from "@angular/material/button";
 import {WorkerFieldFormComponent} from "../worker-field-form/worker-field-form.component";
 import {RouterLink} from "@angular/router";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-workers-field-table',
   standalone: true,
-  imports: [MatTableModule, NgFor, NgIf, MatButton, WorkerFieldFormComponent, RouterLink],
+  imports: [MatTableModule, NgFor, NgIf, MatButton, WorkerFieldFormComponent, RouterLink, TranslateModule],
   templateUrl: './workers-field-table.component.html',
   styleUrl: './workers-field-table.component.css'
 })

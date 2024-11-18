@@ -1,13 +1,13 @@
 <mat-card class="w-96" appearance="outlined">
   <img mat-card-image src="/assets/img/fields1.png" alt="Photo of a Shiba Inu" (click)="goToHome(field.id)">
   <mat-card-content>
-    <h3>{{ field.fieldName }}</h3>
-    <p>Land Size: {{ field.size }}</p>
-    <p>Location: {{ field.location }}</p>
+    <h3>{{ 'fields.fieldName' | translate }}: {{ field.fieldName }}</h3>
+    <p>{{ 'fields.landSize' | translate }}: {{ field.size }}</p>
+    <p>{{ 'fields.location' | translate }}: {{ field.location }}</p>
   </mat-card-content>
   <mat-card-actions class="gap-2.5 m-3">
-    <button class="w-20 !bg-green-600 !text-white !rounded" mat-button (click)="openModal()">Edit</button>
-    <button class="w-20 !bg-green-600 !text-white !rounded" mat-button (click)="onFieldDeleted(field.id)">Delete</button>
+    <button class="w-20 !bg-green-600 !text-white !rounded" mat-button (click)="openModal()">{{ 'shared.edit' | translate }}:</button>
+    <button hidden="hidden" class="w-20 !bg-green-600 !text-white !rounded" mat-button (click)="onFieldDeleted(field.id)">{{ 'fields.delete' | translate }}:</button>
   </mat-card-actions>
 </mat-card>
 

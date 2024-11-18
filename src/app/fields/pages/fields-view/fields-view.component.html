@@ -1,8 +1,8 @@
 <app-navbar-agricultural-producer />
 <div class="m-7">
   <div>
-    <h1 class="!font-extrabold">My Fields</h1>
-    <p class="text-2xl">Here you can view and manage your fields.</p>
+    <h1 class="!font-extrabold">{{ 'fields.myFields' | translate }}</h1>
+    <p class="text-2xl">{{ 'fields.fieldMessage' | translate }}</p>
   </div>
   <app-card-field-list [currentUserId]="userId"></app-card-field-list>
 </div>

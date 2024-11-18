@@ -4,20 +4,20 @@
     <h2 class="text-xl font-semibold mb-4 text-center">{{this.type}} Field</h2>
     <form (submit)="onSubmit()" #fieldForm="ngForm" class="flex flex-col">
       <mat-form-field appearance="fill" class="mb-4">
-        <mat-label>Field Name</mat-label>
+        <mat-label>{{ 'fields.fieldName' | translate }}</mat-label>
         <input matInput placeholder="Field Name" name="fieldName" [(ngModel)]="field.fieldName" required>
       </mat-form-field>
       <mat-form-field appearance="fill" class="mb-4">
-        <mat-label>Area Size</mat-label>
+        <mat-label>{{ 'fields.landSize' | translate }}</mat-label>
         <input matInput type="number" placeholder="Area Size (e.g., acres)" name="areaSize" [(ngModel)]="field.size" required>
       </mat-form-field>
       <mat-form-field appearance="fill" class="mb-4">
-        <mat-label>Location</mat-label>
+        <mat-label>{{ 'fields.location' | translate }}</mat-label>
         <input matInput placeholder="Location" name="location" [(ngModel)]="field.location" required>
       </mat-form-field>
       <div class="flex flex-col sm:flex-row justify-between mt-4">
-        <button [disabled]="fieldForm.invalid" class="bg-primary px-4 py-2 text-white uppercase rounded hover:bg-primary-hover mb-2 sm:mb-0">Add</button>
-        <button (click)="onCancel()" class="px-4 py-2 bg-red-500 text-white uppercase rounded hover:bg-red-600">Cancel</button>
+        <button [disabled]="fieldForm.invalid" class="bg-primary px-4 py-2 text-white uppercase rounded hover:bg-primary-hover mb-2 sm:mb-0">{{ 'shared.add' | translate }}</button>
+        <button (click)="onCancel()" class="px-4 py-2 bg-red-500 text-white uppercase rounded hover:bg-red-600">{{ 'shared.cancel' | translate }}</button>
       </div>
     </form>
   </div>

@@ -5,6 +5,7 @@ import {FieldsService} from "../../services/fields.service";
 import {NgIf} from "@angular/common";
 import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
 import {MatInput, MatInputModule} from "@angular/material/input";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-field-form',
@@ -15,7 +16,8 @@ import {MatInput, MatInputModule} from "@angular/material/input";
     FormsModule,
     MatInput,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    TranslateModule
   ],
   templateUrl: './field-form.component.html',
   styleUrl: './field-form.component.css'

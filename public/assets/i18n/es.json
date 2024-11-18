@@ -6,7 +6,15 @@
     "upcoming": "Próximo",
     "start": "Iniciar",
     "finish": "Finalizar",
-    "select": "Seleccionar"
+    "select": "Seleccionar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "add": "Agregar",
+    "return": "Volver"
+  },
+  "users": {
+    "fullName": "Nombre Completo",
+    "documentNumber": "Número de Documento"
   },
   "agriculturalProcess": {
     "plantType": "Tipo de Planta",
@@ -44,6 +52,14 @@
     "totalProfit": "Ganancia Total"
   },
   "workers": {
-    "manageWorkers": "Administrar Trabajadores"
+    "manageWorkers": "Administrar Trabajadores",
+    "addWorker": "Agregar Trabajador"
+  },
+  "fields": {
+    "fieldName": "Nombre del Campo",
+    "landSize": "Tamaño del Terreno",
+    "location": "Ubicación",
+    "myFields": "Mis Campos",
+    "fieldMessage": "Aquí puedes ver y administrar tus campos."
   }
 }

@@ -3,16 +3,16 @@
     <h2 class="text-xl font-semibold mb-4 text-center">Add Worker</h2>
     <form (submit)="onSubmit()" #workerForm="ngForm" class="flex flex-col">
       <mat-form-field appearance="fill" class="mb-4">
-        <mat-label>Full Name</mat-label>
+        <mat-label>{{ 'users.fullName' | translate }}</mat-label>
         <input matInput placeholder="Full Name" name="fullName" [(ngModel)]="worker.fullName" required>
       </mat-form-field>
       <mat-form-field appearance="fill" class="mb-4">
-        <mat-label>Document Number</mat-label>
+        <mat-label>{{ 'users.documentNumber' | translate }}</mat-label>
         <input matInput placeholder="Document Number" name="documentNumber" [(ngModel)]="worker.documentNumber" required>
       </mat-form-field>
       <div class="flex flex-col sm:flex-row justify-between mt-4">
-        <button [disabled]="workerForm.invalid" class="bg-primary px-4 py-2 text-white uppercase rounded hover:bg-primary-hover mb-2 sm:mb-0">Add</button>
-        <button (click)="onCancel()" class="px-4 py-2 bg-red-500 text-white uppercase rounded hover:bg-red-600">Cancel</button>
+        <button [disabled]="workerForm.invalid" class="bg-primary px-4 py-2 text-white uppercase rounded hover:bg-primary-hover mb-2 sm:mb-0">{{ 'shared.add' | translate }}</button>
+        <button (click)="onCancel()" class="px-4 py-2 bg-red-500 text-white uppercase rounded hover:bg-red-600">{{ 'users.cancel' | translate }}</button>
       </div>
     </form>
   </div>

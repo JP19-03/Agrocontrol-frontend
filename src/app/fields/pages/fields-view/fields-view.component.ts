@@ -3,13 +3,15 @@ import {CardFieldListComponent} from "../../components/card-field-list/card-fiel
 import {
   NavbarAgriculturalProducerComponent
 } from "../../../public/components/navbar-agricultural-producer/navbar-agricultural-producer.component";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-fields-view',
   standalone: true,
   imports: [
     CardFieldListComponent,
-    NavbarAgriculturalProducerComponent
+    NavbarAgriculturalProducerComponent,
+    TranslateModule
   ],
   templateUrl: './fields-view.component.html',
   styleUrl: './fields-view.component.css'

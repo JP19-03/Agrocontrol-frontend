@@ -4,7 +4,7 @@
     (click)="openModal()"
     class="w-full max-w-xs bg-blue-600 text-white rounded-lg py-3 px-6 transition-all transform hover:scale-105 shadow-lg"
   >
-    Add Worker
+    {{ 'workers.add-worker' | translate }}
   </button>
 
   <!-- Tabla de Workers -->
@@ -18,7 +18,7 @@
     (click)="goToHome()"
     class="w-full max-w-xs bg-blue-600 text-white rounded-lg py-3 px-6 transition-all transform hover:scale-105 shadow-lg"
   >
-    Return
+    {{ 'shared.return' | translate }}
   </button>
 
   <app-worker-field-form

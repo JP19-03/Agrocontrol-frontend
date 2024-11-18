@@ -7,6 +7,14 @@
     "start": "Start",
     "finish": "Finish",
     "select": "Select",
+    "edit": "Edit",
+    "delete": "Delete",
+    "add": "Add",
+    "return": "Return"
+  },
+  "users": {
+    "fullName": "Full Name",
+    "documentNumber": "Document Number"
   },
   "agriculturalProcess": {
     "plantType": "Plant Type",
@@ -17,7 +25,7 @@
     "pricePerKg": "Price Per Kg",
     "status": "Status",
     "workersTotalCost": "Workers Total Cost",
-    "resources": "Resources",
+    "resources": "Resources"
   },
   "agriculturalActivity": {
     "cropTreatmentHistory": "Crop Treatment History",
@@ -25,7 +33,7 @@
     "harvestHistory": "Harvest History",
     "addHarvest": "Add Harvest",
     "irrigationHistory": "Irrigation History",
-    "addIrrigation": "Add Irrigation",
+    "addIrrigation": "Add Irrigation"
   },
   "resources": {
     "products": "Products",
@@ -36,7 +44,7 @@
     "addResource": "Add Resource",
     "removeResource": "Remove Resource",
     "submitAll": "Submit All",
-    "name": "Name",
+    "name": "Name"
   },
   "finances": {
     "totalIncome": "Total Income",
@@ -45,5 +53,13 @@
   },
   "workers": {
     "manageWorkers": "Manage Workers",
+    "addWorker": "Add Worker"
+  },
+  "fields": {
+    "fieldName": "Field Name",
+    "landSize": "Land Size",
+    "location": "Location",
+    "myFields": "My Fields",
+    "fieldMessage": "Here you can view and manage your fields."
   }
 }

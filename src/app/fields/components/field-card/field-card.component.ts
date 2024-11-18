@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
 import {FieldFormComponent} from "../field-form/field-form.component";
 import {AgriculturalProcessService} from "../../../agricultural-process/services/agricultural-process.service";
 import {FieldFormEditComponent} from "../field-form-edit/field-form-edit.component";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-field-card',
@@ -21,7 +22,8 @@ import {FieldFormEditComponent} from "../field-form-edit/field-form-edit.compone
     MatButton,
     NgIf,
     FieldFormComponent,
-    FieldFormEditComponent
+    FieldFormEditComponent,
+    TranslateModule
   ],
   templateUrl: './field-card.component.html',
   styleUrl: './field-card.component.css'
