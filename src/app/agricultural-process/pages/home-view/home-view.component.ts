@@ -6,6 +6,7 @@ import {Worker} from "../../../fields/models/worker.entity";
 import {WorkersFieldTableComponent} from "../../../fields/components/workers-field-table/workers-field-table.component";
 import {MatButton} from "@angular/material/button";
 import {NgIf} from "@angular/common";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @Component({
@@ -16,7 +17,8 @@ import {NgIf} from "@angular/common";
     WorkersFieldTableComponent,
     MatButton,
     NgIf,
-    RouterLink
+    RouterLink,
+    TranslateModule
   ],
   templateUrl: './home-view.component.html',
   styleUrl: './home-view.component.css'

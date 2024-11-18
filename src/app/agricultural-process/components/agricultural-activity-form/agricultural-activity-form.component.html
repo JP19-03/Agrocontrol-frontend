@@ -4,33 +4,33 @@
 
     <form #activityForm="ngForm" (ngSubmit)="onSubmit()" class="w-full max-w-sm">
       <mat-form-field appearance="fill" class="w-full">
-        <mat-label>Date</mat-label>
+        <mat-label>{{ 'shared.date' | translate }}</mat-label>
         <input matInput placeholder="Date" [(ngModel)]="date" name="date" readonly>
       </mat-form-field>
 
 
       <div *ngIf="activityType === 'Seeding'">
         <mat-form-field appearance="fill" class="w-full">
-          <mat-label>Plant Type</mat-label>
+          <mat-label>{{ 'agriculturalProcess.plantType' | translate }}</mat-label>
           <input matInput placeholder="Plan Type" name="plantType" [(ngModel)]="item.plantType" required>
         </mat-form-field>
 
         <mat-form-field appearance="fill" class="w-full">
-          <mat-label>Quantity Planted</mat-label>
+          <mat-label>{{ 'agriculturalProcess.quantityPlanted' | translate }}</mat-label>
           <input matInput type="number" min="1" placeholder="Quantity Planted" name="quantityPlanted" [(ngModel)]="item.quantityPlanted" required>
         </mat-form-field>
       </div>
 
       <div *ngIf="activityType === 'Irrigation'">
         <mat-form-field appearance="fill" class="w-full">
-          <mat-label>Hours Irrigated</mat-label>
+          <mat-label>{{ 'agriculturalProcess.hoursIrrigated' | translate }}</mat-label>
           <input matInput type="number" min="1" placeholder="Hours Irrigated" name="hoursIrrigated" [(ngModel)]="item.hoursIrrigated" required>
         </mat-form-field>
       </div>
 
       <div *ngIf="activityType === 'CropTreatment'">
         <mat-form-field appearance="fill" class="w-full">
-          <mat-label>Type</mat-label>
+          <mat-label>{{ 'agriculturalProcess.type' | translate }}</mat-label>
           <mat-select placeholder="Type" name="treatmentType" [(ngModel)]="item.treatmentType" required>
             <mat-option [value]="'Fertilization'">Fertilization</mat-option>
             <mat-option [value]="'Fumigation'">Fumigation</mat-option>
@@ -40,12 +40,12 @@
 
       <div *ngIf="activityType === 'Harvest'">
         <mat-form-field appearance="fill" class="w-full">
-          <mat-label>Quantity Harvested In Kg</mat-label>
+          <mat-label>{{ 'agriculturalProcess.quantityHarvested' | translate }}</mat-label>
           <input matInput type="number" min="1" placeholder="Quantity Harvested" name="quantityInKg" [(ngModel)]="item.quantityInKg" required>
         </mat-form-field>
 
         <mat-form-field appearance="fill" class="w-full">
-          <mat-label>Price Per Kg</mat-label>
+          <mat-label>{{ 'agriculturalProcess.pricePerKg' | translate }}</mat-label>
           <input matInput type="number" min="1" placeholder="Price Per Kg" name="pricePerKg" [(ngModel)]="item.pricePerKg" required>
         </mat-form-field>
       </div>
@@ -55,7 +55,7 @@
           type="submit"
           [disabled]="activityForm.invalid"
           class="bg-primary px-5 py-3 text-white font-semibold uppercase rounded-lg shadow-md hover:bg-primary-hover disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 ease-in-out">
-          Confirm
+          {{ 'shared.confirm' | translate }}
         </button>
 
 
@@ -63,7 +63,7 @@
           type="button"
           (click)="onCancel()"
           class="bg-red-600 text-white font-semibold uppercase px-5 py-3 rounded-lg shadow-md hover:bg-red-700 transition-all duration-300 ease-in-out">
-          Cancel
+          {{ 'shared.cancel' | translate }}
         </button>
       </div>
 

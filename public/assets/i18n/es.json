@@ -1,0 +1,49 @@
+{
+  "shared":{
+    "date": "Fecha",
+    "confirm": "Confirmar",
+    "cancel": "Cancelar",
+    "upcoming": "Próximo",
+    "start": "Iniciar",
+    "finish": "Finalizar",
+    "select": "Seleccionar"
+  },
+  "agriculturalProcess": {
+    "plantType": "Tipo de Planta",
+    "quantityPlanted": "Cantidad Plantada",
+    "hoursIrrigated": "Horas de Riego",
+    "type": "Tipo",
+    "quantityHarvested": "Cantidad Cosechada en Kg",
+    "pricePerKg": "Precio por Kg",
+    "status": "Estado",
+    "workersTotalCost": "Costo Total de Trabajadores",
+    "resources": "Recursos"
+  },
+  "agriculturalActivity": {
+    "cropTreatmentHistory": "Historial de Tratamiento de Cultivos",
+    "addCropTreatment": "Agregar Tratamiento de Cultivo",
+    "harvestHistory": "Historial de Cosecha",
+    "addHarvest": "Agregar Cosecha",
+    "irrigationHistory": "Historial de Riego",
+    "addIrrigation": "Agregar Riego"
+  },
+  "resources": {
+    "products": "Productos",
+    "workers": "Trabajadores",
+    "description": "Descripción",
+    "cost": "Costo",
+    "quantity": "Cantidad",
+    "addResource": "Agregar Recurso",
+    "removeResource": "Eliminar Recurso",
+    "submitAll": "Enviar Todo",
+    "name": "Nombre"
+  },
+  "finances": {
+    "totalIncome": "Ingreso Total",
+    "totalExpenses": "Gasto Total",
+    "totalProfit": "Ganancia Total"
+  },
+  "workers": {
+    "manageWorkers": "Administrar Trabajadores"
+  }
+}

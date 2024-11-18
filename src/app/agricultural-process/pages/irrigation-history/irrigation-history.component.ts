@@ -7,6 +7,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatButtonModule} from '@angular/material/button';
 import {RouterLink} from "@angular/router";
 import {AgriculturalProcessService} from "../../services/agricultural-process.service";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @Component({
@@ -15,7 +16,8 @@ import {AgriculturalProcessService} from "../../services/agricultural-process.se
   imports: [
     AgriculturalActivityTableComponent,
     MatButtonModule,
-    RouterLink
+    RouterLink,
+    TranslateModule
   ],
   templateUrl: './irrigation-history.component.html',
   styleUrl: './irrigation-history.component.css'

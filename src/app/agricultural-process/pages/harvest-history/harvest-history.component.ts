@@ -6,13 +6,15 @@ import {
   AgriculturalActivityTableComponent
 } from "../../components/agricultural-activity-table/agricultural-activity-table.component";
 import {RouterLink} from "@angular/router";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-harvest-history',
   standalone: true,
   imports: [
     AgriculturalActivityTableComponent,
-    RouterLink
+    RouterLink,
+    TranslateModule
   ],
   templateUrl: './harvest-history.component.html',
   styleUrl: './harvest-history.component.css'

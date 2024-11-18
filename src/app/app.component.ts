@@ -3,6 +3,7 @@ import {Router, RouterOutlet} from '@angular/router';
 import {AuthService} from "./profile-management/services/auth.service";
 import {AuthStatus} from "./profile-management/models/auth-status.enum";
 import {NgIf} from "@angular/common";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-root',
@@ -24,4 +25,9 @@ export class AppComponent {
     return true;
   });
   title = 'agrocontrol-front-end';
+
+  constructor(translate: TranslateService) {
+    translate.setDefaultLang('en');
+    translate.use('en');
+  }
 }

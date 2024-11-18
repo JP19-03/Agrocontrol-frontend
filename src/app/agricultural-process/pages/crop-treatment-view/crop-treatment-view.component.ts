@@ -6,14 +6,16 @@ import {
 import {MatTableDataSource} from "@angular/material/table";
 import {AgriculturalProcessService} from "../../services/agricultural-process.service";
 import {AgriculturalActivity} from "../../models/agricultural-activity.entity";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-crop-treatment-view',
   standalone: true,
-    imports: [
-        RouterLink,
-        AgriculturalActivityTableComponent
-    ],
+  imports: [
+    RouterLink,
+    AgriculturalActivityTableComponent,
+    TranslateModule
+  ],
   templateUrl: './crop-treatment-view.component.html',
   styleUrl: './crop-treatment-view.component.css'
 })

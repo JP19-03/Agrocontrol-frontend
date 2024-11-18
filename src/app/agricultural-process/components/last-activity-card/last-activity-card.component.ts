@@ -4,11 +4,12 @@ import {AgriculturalProcessService} from "../../services/agricultural-process.se
 import {AgriculturalActivity} from "../../models/agricultural-activity.entity";
 import {NgIf} from "@angular/common";
 import {MatIcon} from "@angular/material/icon";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-last-activity-card',
   standalone: true,
-  imports: [MatCardModule, NgIf, MatIcon],
+  imports: [MatCardModule, NgIf, MatIcon, TranslateModule],
   templateUrl: './last-activity-card.component.html',
   styleUrl: './last-activity-card.component.css'
 })

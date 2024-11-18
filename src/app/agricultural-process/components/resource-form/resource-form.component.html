@@ -26,13 +26,13 @@
         name="option"
         class="flex gap-4"
       >
-        <mat-radio-button value="workers">Workers</mat-radio-button>
-        <mat-radio-button value="products">Products</mat-radio-button>
+        <mat-radio-button value="workers">{{ 'resources.workers' | translate }}</mat-radio-button>
+        <mat-radio-button value="products">{{ 'resources.products' | translate }}</mat-radio-button>
       </mat-radio-group>
 
       <!-- Select dropdown -->
       <mat-form-field appearance="fill" class="w-full">
-        <mat-label>Select</mat-label>
+        <mat-label>{{ 'shared.select' | translate }}</mat-label>
         <mat-select
           placeholder="Select"
           name="resourceId"
@@ -47,7 +47,7 @@
 
       <!-- Description -->
       <mat-form-field appearance="fill" class="w-full">
-        <mat-label>Description</mat-label>
+        <mat-label>{{ 'resources.description' | translate }}</mat-label>
         <input
           matInput
           placeholder="Description"
@@ -63,7 +63,7 @@
         class="w-full"
         *ngIf="selectedOption === 'workers'"
       >
-        <mat-label>Cost</mat-label>
+        <mat-label>{{ 'resources.cost' | translate }}</mat-label>
         <input
           matInput
           type="number"
@@ -81,7 +81,7 @@
         class="w-full"
         *ngIf="selectedOption === 'products'"
       >
-        <mat-label>Quantity</mat-label>
+        <mat-label>{{ 'resources.quantity' | translate }}</mat-label>
         <input
           matInput
           type="number"
@@ -100,7 +100,7 @@
           (click)="addResource()"
           class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none"
         >
-          Add Resource
+          {{ 'resources.addResource' | translate }}
         </button>
         <button
           type="submit"
@@ -108,7 +108,7 @@
           [disabled]="resources.length === 0"
           class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none"
         >
-          Submit All
+          {{ 'resources.submitAll' | translate }}
         </button>
       </div>
     </form>
@@ -127,7 +127,7 @@
             (click)="removeResource(i)"
             class="text-red-500 hover:underline"
           >
-            Remove
+            {{ 'resources.removeResource' | translate }}
           </button>
         </li>
       </ul>

@@ -6,11 +6,12 @@ import {NgIf} from "@angular/common";
 import {ResourcesTableComponent} from "../resources-table/resources-table.component";
 import {MatIcon} from "@angular/material/icon";
 import {MatIconButton} from "@angular/material/button";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-agricultural-activity-table',
   standalone: true,
-  imports: [MatTableModule, MatInputModule, MatFormFieldModule, NgIf, ResourcesTableComponent, MatIcon, MatIconButton],
+  imports: [MatTableModule, MatInputModule, MatFormFieldModule, NgIf, ResourcesTableComponent, MatIcon, MatIconButton, TranslateModule],
   templateUrl: './agricultural-activity-table.component.html',
   styleUrl: './agricultural-activity-table.component.css'
 })

@@ -10,22 +10,22 @@
   </ng-container>
 
   <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> Date </th>
+    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> {{ 'shared.date' | translate }} </th>
     <td mat-cell *matCellDef="let element" class="!text-center !font-semibold !text-nowrap"> {{element.date}} </td>
   </ng-container>
 
   <ng-container matColumnDef="activityStatus">
-    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> Status </th>
+    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> {{ 'agriculturalProcess.status' | translate }} </th>
     <td mat-cell *matCellDef="let element" class="!text-center !font-semibold"> {{element.activityStatus}} </td>
   </ng-container>
 
   <ng-container matColumnDef="workersTotalCost">
-    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> Workers Total Cost </th>
+    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> {{ 'agriculturalProcess.workersTotalCost' | translate }} </th>
     <td mat-cell *matCellDef="let element" class="!text-center !font-semibold"> {{element.workersTotalCost}} </td>
   </ng-container>
 
   <ng-container matColumnDef="hoursIrrigated">
-    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> Hours Irrigated </th>
+    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> {{ 'agriculturalProcess.hoursIrrigated' | translate }} </th>
     <td mat-cell *matCellDef="let element" class="!text-center !font-semibold">
       <ng-container *ngIf="element.hoursIrrigated !== null">
         {{element.hoursIrrigated}}
@@ -34,7 +34,7 @@
   </ng-container>
 
   <ng-container matColumnDef="plantType">
-    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> Plan Type </th>
+    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> {{ 'agriculturalProcess.plantType' | translate }} </th>
     <td mat-cell *matCellDef="let element" class="!text-center !font-semibold">
       <ng-container *ngIf="element.plantType !== null">
         {{element.plantType}}
@@ -43,7 +43,7 @@
   </ng-container>
 
   <ng-container matColumnDef="quantityPlanted">
-    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> Quantity Planted </th>
+    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> {{ 'agriculturalProcess.quantityPlanted' | translate }} </th>
     <td mat-cell *matCellDef="let element" class="!text-center !font-semibold">
       <ng-container *ngIf="element.quantityPlanted !== null">
         {{element.quantityPlanted}}
@@ -52,7 +52,7 @@
   </ng-container>
 
   <ng-container matColumnDef="treatmentType">
-    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> Type </th>
+    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> {{ 'agriculturalProcess.type' | translate }} </th>
     <td mat-cell *matCellDef="let element" class="!text-center !font-semibold">
       <ng-container *ngIf="element.treatmentType !== null">
         {{element.treatmentType}}
@@ -61,7 +61,7 @@
   </ng-container>
 
   <ng-container matColumnDef="pricePerKg">
-    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> Price Per Kg </th>
+    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> {{ 'agriculturalProcess.pricePerKg' | translate }} </th>
     <td mat-cell *matCellDef="let element" class="!text-center !font-semibold">
       <ng-container *ngIf="element.pricePerKg !== null">
         {{element.pricePerKg}}
@@ -70,7 +70,7 @@
   </ng-container>
 
   <ng-container matColumnDef="quantityInKg">
-    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> Quantity Harvested In Kg </th>
+    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> {{ 'agriculturalProcess.quantityHarvested' | translate }} </th>
     <td mat-cell *matCellDef="let element" class="!text-center !font-semibold">
       <ng-container *ngIf="element.quantityInKg !== null">
         {{element.quantityInKg}}
@@ -79,7 +79,7 @@
   </ng-container>
 
   <ng-container matColumnDef="totalIncome">
-    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> Total Income </th>
+    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> {{ 'finances.totalIncome' | translate }} </th>
     <td mat-cell *matCellDef="let element" class="!text-center !font-semibold">
       <ng-container *ngIf="element.totalIncome !== null">
         {{element.totalIncome}}
@@ -88,7 +88,7 @@
   </ng-container>
 
   <ng-container matColumnDef="resources">
-    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> Resources </th>
+    <th mat-header-cell *matHeaderCellDef class="!text-center !text-gray-400"> {{ 'agriculturalProcess.resources' | translate }} </th>
     <td mat-cell *matCellDef="let element" class="!text-center !font-semibold">
       <button (click)="showPopup(element.resources)" mat-icon-button>
         <mat-icon>info</mat-icon>

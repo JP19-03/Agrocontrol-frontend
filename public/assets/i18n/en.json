@@ -1,0 +1,49 @@
+{
+  "shared":{
+    "date": "Date",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "upcoming": "Upcoming",
+    "start": "Start",
+    "finish": "Finish",
+    "select": "Select",
+  },
+  "agriculturalProcess": {
+    "plantType": "Plant Type",
+    "quantityPlanted": "Quantity Planted",
+    "hoursIrrigated": "Hours Irrigated",
+    "type": "Type",
+    "quantityHarvested": "Quantity Harvested In Kg",
+    "pricePerKg": "Price Per Kg",
+    "status": "Status",
+    "workersTotalCost": "Workers Total Cost",
+    "resources": "Resources",
+  },
+  "agriculturalActivity": {
+    "cropTreatmentHistory": "Crop Treatment History",
+    "addCropTreatment": "Add Crop Treatment",
+    "harvestHistory": "Harvest History",
+    "addHarvest": "Add Harvest",
+    "irrigationHistory": "Irrigation History",
+    "addIrrigation": "Add Irrigation",
+  },
+  "resources": {
+    "products": "Products",
+    "workers": "Workers",
+    "description": "Description",
+    "cost": "Cost",
+    "quantity": "Quantity",
+    "addResource": "Add Resource",
+    "removeResource": "Remove Resource",
+    "submitAll": "Submit All",
+    "name": "Name",
+  },
+  "finances": {
+    "totalIncome": "Total Income",
+    "totalExpenses": "Total Expenses",
+    "totalProfit": "Total Profit"
+  },
+  "workers": {
+    "manageWorkers": "Manage Workers",
+  }
+}

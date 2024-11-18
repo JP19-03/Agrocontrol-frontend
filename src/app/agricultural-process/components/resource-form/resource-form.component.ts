@@ -8,6 +8,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { WorkerService } from "../../../fields/services/worker.service";
 import { ProductService } from "../../../store/services/product.service";
 import {AgriculturalProcessService} from "../../services/agricultural-process.service";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-resource-form',
@@ -20,6 +21,7 @@ import {AgriculturalProcessService} from "../../services/agricultural-process.se
     MatInputModule,
     MatSelectModule,
     NgForOf,
+    TranslateModule,
   ],
   templateUrl: './resource-form.component.html',
   styleUrls: ['./resource-form.component.css'],

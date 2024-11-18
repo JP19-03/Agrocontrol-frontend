@@ -1,6 +1,6 @@
 <mat-card appearance="outlined" *ngIf="agriculturalActivity" class="!border !border-gray-300 !rounded-lg !shadow-md !p-1 !max-w-full">
   <mat-card-title class="!text-xl !font-bold !text-gray-900 !mb-2 md:!text-2xl">
-    <h2 class="!m-0"><span *ngIf="agriculturalActivity.activityType !== 'SEEDING'">Upcoming </span>{{ agriculturalActivity.activityType }}</h2>
+    <h2 class="!m-0"><span *ngIf="agriculturalActivity.activityType !== 'SEEDING'">{{  'shared.upcoming' | translate }} </span>{{ agriculturalActivity.activityType }}</h2>
   </mat-card-title>
     <div class="flex flex-col md:flex-row gap-4 items-center">
       <!-- Images Section -->
@@ -32,12 +32,12 @@
 
         <div class="text-center">
           <div class="flex justify-between items-center gap-2">
-            <p class="text-gray-600 text-sm md:text-lg">Plant Type:</p>
+            <p class="text-gray-600 text-sm md:text-lg">{{ 'agriculturalProcess.plantType' | translate }}:</p>
             <p class="text-gray-800 font-semibold md:text-lg">{{ agriculturalActivity.plantType }}</p>
           </div>
 
           <div class="flex justify-between items-center gap-2">
-            <p class="text-gray-600 text-sm md:text-lg">Qty Planted:</p>
+            <p class="text-gray-600 text-sm md:text-lg">{{ 'agriculturalProcess.quantityPlanted' | translate }}:</p>
             <p class="text-gray-800 font-semibold md:text-lg">{{ agriculturalActivity.quantityPlanted }}</p>
           </div>
         </div>
@@ -46,12 +46,12 @@
 
       <div class="flex space-x-4" *ngIf="agriculturalActivity.activityType !== 'SEEDING'">
           <div class="flex justify-between items-center gap-2">
-            <p class="text-gray-600 text-sm md:text-lg">Date:</p>
+            <p class="text-gray-600 text-sm md:text-lg">{{ 'shared.date' | translate }}:</p>
             <p class="text-gray-800 font-semibold md:text-lg">{{ agriculturalActivity.date }}</p>
           </div>
 
           <div class="flex justify-between items-center gap-2">
-            <p class="text-gray-600 text-sm md:text-lg">Status:</p>
+            <p class="text-gray-600 text-sm md:text-lg">{{ 'agriculturalProcess.status' | translate }}::</p>
             <p
               class="font-semibold md:text-lg
                      {{ agriculturalActivity.activityStatus === 'NOT_STARTED' ? 'text-white bg-gray-500' : '' }}
@@ -71,7 +71,7 @@
       (click)="executeActivity(agriculturalActivity.id, agriculturalProcessId, 'start')"
       class="flex items-center gap-2 bg-green-600 px-4 py-2 text-white font-semibold uppercase rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105 hover:bg-green-700">
       <mat-icon>play_arrow</mat-icon>
-      START
+      {{ 'shared.start' | translate }}
     </button>
 
     <!-- Finish Button -->
@@ -80,7 +80,7 @@
       (click)="executeActivity(agriculturalActivity.id, agriculturalProcessId, 'finish')"
       class="flex items-center gap-2 bg-blue-600 px-4 py-2 text-white font-semibold uppercase rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-700">
       <mat-icon>check_circle</mat-icon>
-      FINISH
+      {{ 'shared.finish' | translate }}
     </button>
 
     <!-- Cancel Button -->
@@ -89,7 +89,7 @@
       (click)="executeActivity(agriculturalActivity.id, agriculturalProcessId, 'cancel')"
       class="flex items-center gap-2 bg-red-600 px-4 py-2 text-white font-semibold uppercase rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:scale-105 hover:bg-red-700">
       <mat-icon>cancel</mat-icon>
-      CANCEL
+      {{ 'shared.cancel' | translate }}
     </button>
   </mat-card-actions>
 

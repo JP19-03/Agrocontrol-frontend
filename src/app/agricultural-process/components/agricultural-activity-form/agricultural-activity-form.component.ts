@@ -7,6 +7,7 @@ import {NgIf} from "@angular/common";
 import {MatSelectModule} from "@angular/material/select";
 import {AgriculturalProcessService} from "../../services/agricultural-process.service";
 import {ResourceFormComponent} from "../resource-form/resource-form.component";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @Component({
@@ -21,6 +22,7 @@ import {ResourceFormComponent} from "../resource-form/resource-form.component";
     NgIf,
     MatSelectModule,
     ResourceFormComponent,
+    TranslateModule,
   ],
   styleUrls: ['./agricultural-activity-form.component.css']
 })
