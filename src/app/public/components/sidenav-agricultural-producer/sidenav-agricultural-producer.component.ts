@@ -27,6 +27,7 @@ export class SidenavAgriculturalProducerComponent implements OnInit{
 
   logOut(): void {
     this.authService.logOut();
+    localStorage.clear();
     this.router.navigate(['/login']); // Redirige a la página de login
   }
 
