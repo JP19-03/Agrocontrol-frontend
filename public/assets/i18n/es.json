@@ -14,7 +14,11 @@
   },
   "users": {
     "fullName": "Nombre Completo",
-    "documentNumber": "Número de Documento"
+    "documentNumber": "Número de Documento",
+    "city": "Ciudad",
+    "country": "País",
+    "phone": "Teléfono",
+    "companyName": "Nombre de la Empresa"
   },
   "agriculturalProcess": {
     "plantType": "Tipo de Planta",

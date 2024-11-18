@@ -28,6 +28,7 @@ import {ProductsProducerComponent} from "./store/pages/products-producer/product
 import {ProductsStoreComponent} from "./store/pages/products-store/products-store.component";
 import {HomeDistributorComponent} from "./public/pages/home-distributor/home-distributor.component";
 import {SalesHistoryComponent} from "./store/pages/sales-history/sales-history.component";
+import {ProfilePageComponent} from "./profile-management/pages/profile-page/profile-page.component";
 
 export const routes: Routes = [
   { path: 'register', component: RegisterPageComponent, canActivate: [ isNotAuthenticatedGuard ] },
@@ -39,12 +40,7 @@ export const routes: Routes = [
     path: 'subscription-selection',
     component: SubscriptionSelectionComponent,
   },
-  {
-    path: 'field',
-    component: FieldsViewComponent,
-    canActivate: [isAuthenticatedGuard],
-    data: { roles: ['ROLE_AGRICULTURAL_PRODUCER'] },
-  },
+
   {
     path: 'home-distributor/:id',
     component: HomeDistributorComponent,
@@ -61,7 +57,12 @@ export const routes: Routes = [
       }
     ]
   },
-
+  {
+    path: 'field',
+    component: FieldsViewComponent,
+    canActivate: [isAuthenticatedGuard],
+    data: { roles: ['ROLE_AGRICULTURAL_PRODUCER'] },
+  },
   // Rutas protegidas para ROLE_AGRICULTURAL_PRODUCER
   {
     path: '',
@@ -69,6 +70,10 @@ export const routes: Routes = [
     canActivate: [isAuthenticatedGuard],
     data: { roles: ['ROLE_AGRICULTURAL_PRODUCER'] },
     children: [
+      {
+        path: 'profile/:id',
+        component: ProfilePageComponent,
+      },
       {
         path: 'home-agricultural-process/:id',
         component: HomeViewComponent,

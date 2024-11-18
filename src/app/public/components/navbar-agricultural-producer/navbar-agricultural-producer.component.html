@@ -11,9 +11,7 @@
   <!-- Íconos de notificaciones y perfil -->
   <div class="flex items-center space-x-4">
     <app-language-switcher />
-    <!-- Nombre de usuario -->
-    <span class="!text-white">Alejandro</span>
     <!-- Icono de perfil -->
-    <mat-icon class="!text-white">account_circle</mat-icon>
+    <mat-icon class="!text-white" [routerLink]="'/profile/' + userId">account_circle</mat-icon>
   </div>
 </mat-toolbar>
