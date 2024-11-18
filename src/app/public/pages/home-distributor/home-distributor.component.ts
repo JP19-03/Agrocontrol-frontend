@@ -1,24 +1,22 @@
 import {Component, HostListener} from '@angular/core';
 import {MatDrawer, MatDrawerContainer, MatDrawerContent} from "@angular/material/sidenav";
-import {
-    NavbarAgriculturalProducerComponent
-} from "../../components/navbar-agricultural-producer/navbar-agricultural-producer.component";
 import {Event, RouterOutlet} from "@angular/router";
 import {
     SidenavAgriculturalProducerComponent
 } from "../../components/sidenav-agricultural-producer/sidenav-agricultural-producer.component";
+import {NavbarDistributorComponent} from "../../components/navbar-distributor/navbar-distributor.component";
 
 @Component({
   selector: 'app-home-distributor',
   standalone: true,
-    imports: [
-        MatDrawer,
-        MatDrawerContainer,
-        MatDrawerContent,
-        NavbarAgriculturalProducerComponent,
-        RouterOutlet,
-        SidenavAgriculturalProducerComponent
-    ],
+  imports: [
+    MatDrawer,
+    MatDrawerContainer,
+    MatDrawerContent,
+    RouterOutlet,
+    SidenavAgriculturalProducerComponent,
+    NavbarDistributorComponent
+  ],
   templateUrl: './home-distributor.component.html',
   styleUrl: './home-distributor.component.css'
 })

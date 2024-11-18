@@ -48,6 +48,10 @@ export const routes: Routes = [
     data: { roles: ['ROLE_DISTRIBUTOR'] },
     children: [
       {
+        path: 'profile-distributor/:id',
+        component: ProfilePageComponent,
+      },
+      {
         path: 'your-products',
         component: ProductsInventoryComponent,
       },
@@ -71,7 +75,7 @@ export const routes: Routes = [
     data: { roles: ['ROLE_AGRICULTURAL_PRODUCER'] },
     children: [
       {
-        path: 'profile/:id',
+        path: 'profile-producer/:id',
         component: ProfilePageComponent,
       },
       {
