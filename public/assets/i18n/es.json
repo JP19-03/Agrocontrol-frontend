@@ -49,7 +49,9 @@
   "finances": {
     "totalIncome": "Ingreso Total",
     "totalExpenses": "Gasto Total",
-    "totalProfit": "Ganancia Total"
+    "totalProfit": "Ganancia Total",
+    "amount": "Cantidad",
+    "financeHistory": "Historial Financiero"
   },
   "workers": {
     "manageWorkers": "Administrar Trabajadores",

@@ -3,6 +3,7 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {CurrencyPipe, NgClass, NgIf, TitleCasePipe} from "@angular/common";
+import {TranslateModule} from "@ngx-translate/core";
 @Component({
   selector: 'app-finance-table',
   standalone: true,
@@ -13,7 +14,8 @@ import {CurrencyPipe, NgClass, NgIf, TitleCasePipe} from "@angular/common";
     NgIf,
     CurrencyPipe,
     TitleCasePipe,
-    NgClass
+    NgClass,
+    TranslateModule
   ],
   templateUrl: './finance-table.component.html',
   styleUrl: './finance-table.component.css'

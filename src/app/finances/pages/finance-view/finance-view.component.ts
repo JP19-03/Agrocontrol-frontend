@@ -3,12 +3,14 @@ import {MatTableDataSource} from "@angular/material/table";
 import {FinanceService} from "../../services/finance.service";
 import {Finance} from "../../models/finance.entity";
 import {FinanceTableComponent} from "../../components/finance-table/finance-table.component";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-finance-view',
   standalone: true,
   imports: [
-    FinanceTableComponent
+    FinanceTableComponent,
+    TranslateModule
   ],
   templateUrl: './finance-view.component.html',
   styleUrl: './finance-view.component.css'

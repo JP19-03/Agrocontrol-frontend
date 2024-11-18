@@ -49,7 +49,9 @@
   "finances": {
     "totalIncome": "Total Income",
     "totalExpenses": "Total Expenses",
-    "totalProfit": "Total Profit"
+    "totalProfit": "Total Profit",
+    "amount": "Amount",
+    "financeHistory": "Finance History"
   },
   "workers": {
     "manageWorkers": "Manage Workers",
