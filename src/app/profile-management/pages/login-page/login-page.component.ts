@@ -27,7 +27,7 @@ export class LoginPageComponent {
 
         if (role === 'ROLE_AGRICULTURAL_PRODUCER') {
           console.log('Navegando a /field');
-          this.router.navigate(['/field']);
+          this.router.navigate(['/fields']);
         } else if (role === 'ROLE_DISTRIBUTOR') {
           this.router.navigate(['/home-distributor/' + userId]);
         }

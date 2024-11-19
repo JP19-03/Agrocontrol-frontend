@@ -14,7 +14,7 @@ export const isNotAuthenticatedGuard: CanActivateFn = (route, state) => {
 
     // Redirigir según el rol
     if (roles.includes('ROLE_AGRICULTURAL_PRODUCER')) {
-      router.navigateByUrl('/field');
+      router.navigateByUrl('/fields');
     } else if (roles.includes('ROLE_DISTRIBUTOR') && userId) {
       router.navigateByUrl(`/home-distributor/${userId}`);
     }
